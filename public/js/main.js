@@ -75,6 +75,9 @@ class Player {
         }
     }
     move(dir) {
+        if (this.pos % (this.width - 1) == 1 || 0) {
+            alert('działa')
+        }
         document.querySelectorAll(".box-block")[this.pos].removeChild(document.querySelectorAll(".box-block")[this.pos].children[0]);
         this.pos += dir;
         this.drawPlayer();
