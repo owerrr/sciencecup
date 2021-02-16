@@ -72,15 +72,15 @@ body{
 .box-block{
     width:64px;
     height:64px;
-    margin-left:5px;
-    margin-top:5px;
+    margin-left:1px;
+    margin-top:1px;
     background-color:rgb(10,10,10,1);
     float:left;
 }
 
 .game-box_screen{
-    width:557px;
-    height:557px;
+    width:521px;
+    height:521px;
     background-color:white;
     margin:auto;
     border: 5px;

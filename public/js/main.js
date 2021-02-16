@@ -5,6 +5,9 @@ let game;
 
 let player;
 
+let width = 8;
+let height = 8;
+
 let gameImages = {
     player: {
         src: "public/img/player.png"
@@ -18,17 +21,30 @@ let gameImages = {
 }
 
 window.onload = () => {
-    for (let i = 0; i < 64; i++) {
-        let div = document.createElement("div");
-        div.classList.add("box-block");
-        div.id = "box-" + i;
-        document.querySelector(".game-box_screen").append(div);
+    let i = 0;
+    for (let h = 0; h < height; h++) {
+        for (let w = 0; w < width; w++) {
+
+            let div = document.createElement("div");
+            div.classList.add("box-block");
+            div.classList.add("height-" + h);
+            div.classList.add("row-" + w);
+            div.id = "box-" + i;
+            document.querySelector(".game-box_screen").append(div);
+
+            i++;
+        }
     }
+
+    let image = document.createElement('img');
+    image.src = gameImages.box.src;
+    image.classList.add("game-item");
+    document.querySelectorAll(".box-block")[9].appendChild(image);
 
     player = new Player(5);
     player.drawPlayer();
 
-    document.onkeyup = (e) => {
+    document.onkeydown = (e) => {
         if (e.keyCode == '38') {
             player.movePlayer('up')
         }
@@ -45,7 +61,6 @@ window.onload = () => {
 }
 class Player {
     constructor(pos) {
-        this.width = 8;
         this.pos = pos;
         this.url = gameImages.player.src;
 
@@ -61,23 +76,32 @@ class Player {
     movePlayer(direction) {
         switch (direction) {
             case 'up':
-                this.move(-this.width);
+                if (this.pos < width) {
+                    return;
+                }
+                this.move(-width);
                 break;
             case 'down':
-                this.move(this.width);
+                if ((this.pos + 1 + width) > width * height) {
+                    return;
+                }
+                this.move(width);
                 break;
             case 'right':
+                if (((this.pos + 1) % 8) == 0) {
+                    return;
+                }
                 this.move(1);
                 break;
             case 'left':
+                if (((this.pos) % 8) == 0) {
+                    return;
+                }
                 this.move(-1)
                 break;
         }
     }
     move(dir) {
-        if (this.pos % (this.width - 1) == 1 || 0) {
-            alert('działa')
-        }
         document.querySelectorAll(".box-block")[this.pos].removeChild(document.querySelectorAll(".box-block")[this.pos].children[0]);
         this.pos += dir;
         this.drawPlayer();
