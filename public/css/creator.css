@@ -29,3 +29,11 @@ body{
 #container{
     margin-top: 10px;
 }
+#inputs{
+    margin-left: 10px;
+}
+#copy-button{
+    margin-right: 10px;
+    float: right;
+    width: auto;
+}

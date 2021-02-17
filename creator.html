@@ -9,14 +9,18 @@
     </head>
     <body>
         <div id="container">
-            width: <input type="number" id="width" value=8>
-            height: <input type="number" id="height" value=8>
-            object: <select id="object">
-                <option>player</option>
-                <option>box</option>
-                <option>wall</option>
-                <option>point</option>
-            </select>
+            <div id="inputs">
+                width: <input type="number" id="width" value=8>
+                height: <input type="number" id="height" value=8>
+                object: <select id="object">
+                    <option>player</option>
+                    <option>air</option>
+                    <option>box</option>
+                    <option>wall</option>
+                    <option>point</option>
+                </select>
+                <input type="button" id="copy-button" onclick="copy()" value="Kopiuj kod mapy">
+            </div>
             <div class="game-box">
                 <div class="game-box_screen"></div>
             </div>

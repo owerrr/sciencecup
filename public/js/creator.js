@@ -1,4 +1,5 @@
 let select = "player";
+let gameImages = {"player":{"src":"public/img/player-static.png"},"playermove":{"src":"public/img/player-moving.gif"},"grass":{"src":"public/img/grass.png"},"box":{"src":"public/img/box.png"},"wall":{"src":"public/img/wall.png"},"point":{"src":"public/img/point.png"}}
 let map = {"height":8,"width":8,"objects":[{"type":"box","movable":true,"pos":[]},{"type":"wall","movable":false,"pos":[]},{"type":"point","movable":false,"collision":true,"pos":[]}]}
 window.onload = function(){
 
@@ -46,7 +47,14 @@ function createTable(){
             }
             let id = e.id;
             id = id.replace("box-", "");
-            drawObject(select, parseInt(id))
+            let pos = parseInt(id);
+            if(select == "air"){
+                map.objects.forEach(e => {
+                    if(e.pos.indexOf(pos) != -1) e.pos.splice(e.pos.indexOf(pos), 1);
+                })
+                return;
+            }
+            drawObject(select, pos)
         }
     })
 }
@@ -55,6 +63,7 @@ function drawObject(type, pos, bool=true){
         map.player = pos;
     } else if(bool) {
         map.objects.forEach(e => {
+            if(e.pos.indexOf(pos) != -1) e.pos.splice(e.pos.indexOf(pos), 1);
             if(e.type == type){
                 e.pos.push(pos)
             }
@@ -89,4 +98,10 @@ function getResult(){
 }
 
 
-let gameImages = {"player":{"src":"public/img/player-static.png"},"playermove":{"src":"public/img/player-moving.gif"},"grass":{"src":"public/img/grass.png"},"box":{"src":"public/img/box.png"},"wall":{"src":"public/img/wall.png"},"point":{"src":"public/img/point.png"}}
+
+function copy() {
+    var copyText = document.getElementById("result");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+  }
