@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link href="public\css\main.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/store.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+<body>
+    <container class="store">
+        <h2>Shop <i class="fas fa-shopping-cart"></i></h2>
+        <article class="store-item">
+            <input class='category' type="button" value="Kolor" onclick="showOption('Colors')">
+            <input class='category' type="button" value="Czapki" onclick="showOption('Hats')">
+            <div class="Colors">
+                <p>Kolory:<p>
+                    <label><input type="radio" name="food"> Różowy</label>
+                    <label><input type="radio" name="food"> Czarny</label>
+                    <label><input type="radio" name="food"> Żółty</label>
+            </div>
+        </article>
+        <article class="store-item">
+            <h3>Kolor 2</h3>
+            <img src="public/img/player-static-black.png" alt="">
+            <h4>Kup teraz</h4>
+        </article>
+    </container>
+    <div class="page-footer">&copy; 2021 | XDD</div>
+    <script src="public\js\main.js"></script>
+    <script src="public\js\settings.js"></script>
+    <script src="public\js\store.js"></script>
+</body>
+</html>
