@@ -1,9 +1,13 @@
 function runGame(level) {
+    if(levels[level - 1] == null) level = 1;
     game = new Game(level);
     game.createTable();
     game.registerPlayerEvent();
     game.drawObjects();
     game.others();
+}
+function clearGame(){
+    document.querySelector(".game-box_screen").innerHTML = "";
 }
 class Game {
     constructor(level) {
@@ -19,7 +23,7 @@ class Game {
         })
     }
     others(){
-        document.querySelectorAll("li")[this.level - 1].classList.add("level-select")
+        //todo
     }
     createTable() {
         document.querySelector(".game-box_screen").style.width = this.width * 64 + "px";

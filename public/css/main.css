@@ -36,6 +36,7 @@ body{
     margin-top:5px;
 }
 .game-header_utilities-bar li {
+    cursor: pointer;
     display:inline;
     float:left;
     font-size:36px;
