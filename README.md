@@ -1,15 +1,39 @@
 # sciencecup
 
 ### changelog
+====================
 
 v1.0
-`Created and prepared frame for work at project`
+
+- [+] basic html site
+- [+] style.css for index.html
+- [+] box.png
 
 v1.1
-`Added style.css for main page and created div's for game`
+
+- [+] main.js with player drawing
+- [/] style.css stylized pictures and main box with game
 
 v1.2
-`Added basic things in main.js like creating mass div's to prepare board`
+
+- [+] list of levels at utilities-bar in index.html
+- [+] main.js player moves
 
 v1.3
-`Added pictures of boxes, walls and points, created settings.js with all settings to sort main.js `
+
+- [+] ReadMe file
+- [+] wall picture
+- [+] point picture
+- [+] settings.js to sort code for main.js
+- [+] footer in index.html
+- [+] Customizable board in main.js
+- [+] player rotations in main.js
+- [/] stylization for index.html in style.css
+
+
+==================
+##### LEGEND:
+
+- [+] - Add/New
+- [/] - Changed/Customized
+- [-] - Deleted
