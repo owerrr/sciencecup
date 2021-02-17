@@ -6,20 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="public\css\main.css" rel="stylesheet">
+    <link href="public\css\shop.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <script src="public\js\shop.js"></script>
     <script src="public\js\main.js"></script>
     <script src="public\js\settings.js"></script>
     <script src="public\js\game.js"></script>
+    
 </head>
 
 <body>
     <div class="game-container">
         <!-- NAV WITH UTILITIES -->
-        <nav>
+        <nav clas="navbar">
         <h1>Sokoban <i class="fas fa-people-carry"></i></h1>
         <ul>
             <li id='shop'>Sklep</li>
-            <li>Autorzy</li>
+            <li>Autorzy</li> 
             <div style="clear:both;"></div>
         </ul>
         <div style="clear:both;"></div>
@@ -39,10 +42,12 @@
             </ul>
         </div>
         <!-- GAME -->
-        <!-- NA DIVACH TO ROBIMY -->
+
         <div class="game-box">
             <div class="game-box_screen"></div>
         </div>
+
+        <!-- SHOP -->
         <container class="store">
             <h2>Shop <i class="fas fa-shopping-cart"></i></h2>
             <article class="store-item">
@@ -50,21 +55,21 @@
                 <input class='category' type="button" value="Czapki" onclick="showOption('Hats')">
                 <div class="colors">
                     <p>Kolory:<p>
-                        <label><input type="radio" name='pink' class='option'>Rozowy</label>
-                        <label><input type="radio" name='pink' class='option'>Czarny</label>
-                        <label><input type="radio" name='yellow' class='option'>Żółty</label>
+                        <label><input type="radio" name='shop-color' id="shop-pink" class='option-color'>Różowy</label>
+                        <label><input type="radio" name='shop-color' id="shop-black" class='option-color'>Czarny</label>
+                        <label><input type="radio" name='shop-color' id="shop-yellow" class='option-color'>Żółty</label>
+                        <label><input type="radio" name='shop-color' id="shop" class='option-color'>Brak</label>
                 </div>
                 <div class="hats">
                     <p>Czapki:<p>
-                        <label><input type="radio" name='option' class='option'> Różowy</label>
-                        <label><input type="radio" name='option' class='option'> Czarny</label>
-                        <label><input type="radio" name='option' class='option'> Żółty</label>
+                        <label><input type="radio" name='shop-hat' class='shop-ping'>Różowy</label>
+                        <label><input type="radio" name='shop-hat' class='shop-black'>Czarny</label>
+                        <label><input type="radio" name='shop-hat' class='shop-yellow'>Żółty</label>
+                        <label><input type="radio" name='shop-hat'>Brak</label>
                 </div>
             </article>
             <article class="store-item">
-                <h3>Kolor 2</h3>
-                <img src="public/img/player-static-black.png" alt="">
-                <h4>Kup teraz</h4>
+                <img src="" id="shop-image">
             </article>
         </container>
     </div>

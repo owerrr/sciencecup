@@ -1,10 +1,8 @@
 function runGame(level) {
-    if(levels[level - 1] == null) level = 1;
-    game = new Game(level);
+    game = new Game(level - 1);
     game.createTable();
     game.registerPlayerEvent();
     game.drawObjects();
-    game.others();
 }
 function clearGame(){
     document.querySelector(".game-box_screen").innerHTML = "";
@@ -12,18 +10,15 @@ function clearGame(){
 class Game {
     constructor(level) {
         this.level = level;
-        this.height = levels[level - 1].height;
-        this.width = levels[level - 1].width;
-        this.player = new Object(levels[level - 1].player, true, "player");
+        this.height = levels[level].height;
+        this.width = levels[level].width;
+        this.player = new Object(levels[level].player, true, "player");
         this.objects = [];
-        levels[level - 1].objects.forEach(e => {
+        levels[level].objects.forEach(e => {
             e.pos.forEach(n => {
                 this.objects.push(new Object(n, e.movable, e.type))
             })
         })
-    }
-    others(){
-        //todo
     }
     createTable() {
         document.querySelector(".game-box_screen").style.width = this.width * 64 + "px";
@@ -47,8 +42,8 @@ class Game {
         }
     }
     registerPlayerEvent() {
+        //document.querySelector("#player").src = gameImages.playerMove.src;
         document.onkeydown = (e) => {
-            document.querySelector("#player").src = gameImages.playermove.src;
             if (e.keyCode == '38') {
                 this.player.moveObject('up')
             }
