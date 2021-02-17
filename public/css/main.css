@@ -31,7 +31,7 @@ body{
 .game-header_utilities-bar{
     list-style-type:none;
     color:#fff;
-    width:500px;
+    width:350px;
     margin:auto;
     margin-top:5px;
 }
@@ -39,11 +39,11 @@ body{
     display:inline;
     float:left;
     font-size:36px;
-    margin-left:25px;
+    margin-left:10px;
 }
-.game-header_utilities-bar li::after{content: " |"}
+.game-header_utilities-bar li::before{content: " | "}
 .game-header_utilities-bar li:first-child{margin-left:none;}
-.game-header_utilities-bar li:last-child::after{content: none;}
+.game-header_utilities-bar li:first-child::before{content: "";}
 
 /* BOX */
 
@@ -60,9 +60,7 @@ body{
 
 #game{
     position:relative;
-    left:50%;
     transform:translateX(-50%);
-    width:50%;
     height:100%;
     background-color:rgba(255,255,255,1);
 }
@@ -72,18 +70,14 @@ body{
 .box-block{
     width:64px;
     height:64px;
-    margin-left:1px;
-    margin-top:1px;
+
     background-color:rgb(10,10,10,1);
     float:left;
 }
 
 .game-box_screen{
-    width:521px;
-    height:521px;
-    background-color:white;
+    background-color:rgb(10,10,10,1);
     margin:auto;
-    border: 5px;
 }
 .game-item{
     width:64px;
@@ -105,6 +99,5 @@ body{
     background-color:rgba(10,10,10,1);
     color:rgba(50,50,50,1);
 
-    position:fixed;
-    bottom:0;
+    margin-top:250px;
 }
