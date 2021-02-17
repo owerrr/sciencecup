@@ -1,46 +1,7 @@
 
 let levels = [
-    {
-        height: 8,
-        width: 8,
-        player: 9,
-        objects: [
-            {
-                type: "box",
-                movable: true,
-                pos: [18, 45]
-            },
-            {
-                type: "wall",
-                movable: false,
-                pos: []
-            },
-            {
-                type: "point",
-                movable: false,
-                collision: true,
-                pos: [25]
-            }
-        ]
-    },
-    {
-        height: 10,
-        width: 10,
-        player: 11,
-        objects: [
-            {
-                type: "box",
-                movable: true,
-                pos: [25, 42]
-            },
-            {
-                type: "point",
-                movable: false,
-                collision: true,
-                pos: [13]
-            }
-        ]
-    },
+    {"height":11,"width":8,"objects":[{"type":"box","movable":true,"pos":[34,43,50]},{"type":"wall","movable":false,"pos":[19,20,26,29,58,67,68,61]},{"type":"point","movable":false,"collision":true,"pos":[37,44,53]}],"player":73},
+    {"height":7,"width":8,"objects":[{"type":"box","movable":true,"pos":[18,26,34,37,21]},{"type":"wall","movable":false,"pos":[28,30,11,43]},{"type":"point","movable":false,"collision":true,"pos":[20,19,27,35,36]}],"player":25},
 ]
 let gameImages = {
     player: {
