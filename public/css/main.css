@@ -1,4 +1,4 @@
-body {
+<<<<<<< HEAD body {
 	background-color: #111;
 	margin: 0;
 	padding: 0;
@@ -35,6 +35,12 @@ nav ul li {
 nav ul li:hover {
 	color: #dddddd;
 }
+body {
+	background-color: #111;
+	margin: 0;
+	padding: 0;
+}
+
 /* MAIN CONTAINER */
 .game-container {
 	width: 75vw;
