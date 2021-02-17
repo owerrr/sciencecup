@@ -41,6 +41,9 @@ body{
     font-size:36px;
     margin-left:10px;
 }
+.level-select{
+    color: red;
+}
 .game-header_utilities-bar li::before{content: " | "}
 .game-header_utilities-bar li:first-child{margin-left:none;}
 .game-header_utilities-bar li:first-child::before{content: "";}
@@ -73,6 +76,7 @@ body{
 
     background-color:rgb(10,10,10,1);
     float:left;
+
 }
 
 .game-box_screen{

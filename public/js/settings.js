@@ -3,12 +3,12 @@ let levels = [
     {
         height: 8,
         width: 8,
-        player: 15,
+        player: 9,
         objects: [
             {
                 type: "box",
                 movable: true,
-                pos: [2, 3, 6, 27, 28]
+                pos: [18, 45]
             },
             {
                 type: "wall",
@@ -44,7 +44,10 @@ let levels = [
 ]
 let gameImages = {
     player: {
-        src: "public/img/player.png"
+        src: "public/img/player-static.png"
+    },
+    playermove: {
+        src: "public/img/player-moving.gif"
     },
     grass: {
         src: "public/img/grass.png"

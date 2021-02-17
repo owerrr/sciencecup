@@ -28,8 +28,17 @@ v1.3
 - [+] footer in index.html
 - [+] Customizable board in main.js
 - [+] player rotations in main.js
+- [+] box moves
 - [/] stylization for index.html in style.css
 
+v1.4
+
+- [+] player static and animated picture
+- [+] second level
+- [+] main.js moved to game.js
+- [+] colored font for picked level
+- [/] customization in style.css for index.html
+- [/] improvized player moves
 
 ==================
 ##### LEGEND:
