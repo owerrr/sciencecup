@@ -1,12 +1,15 @@
 function registerShop(){
-    document.getElementById('shop').onclick = ()=>{
-        document.querySelector('.store').classList.toggle('active')
-        document.body.classList.toggle('shop-active')
-        if(document.querySelector(".store").classList.contains("active")){
-            changeImage(null)
+    document.getElementsByName("off").forEach(option => {
+        option.onclick = function(){
+            document.querySelector('.store').classList.toggle('active')
+            document.body.classList.toggle('shop-active')
+            if(document.querySelector(".store").classList.contains("active")){
+                changeImage(null)
+            }
+            showOption('Colors')
         }
-        showOption('Colors')
-    }
+    })
+
     document.getElementsByName("shop-color").forEach(option => {
         option.onclick = function(){
             let value = Array.from(document.getElementsByClassName("option-color")).find(r => r.checked).id.replace("shop", "")

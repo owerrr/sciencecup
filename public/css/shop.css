@@ -2,8 +2,7 @@
 /* Store Container */
 .store {
 	width: 80vw;
-	padding-top: 1vh;
-	height: 59vh;
+	height: 60vh;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: rgba(25, 25, 25, 1);
@@ -17,6 +16,7 @@
 }
 /* Store Item */
 .store-item {
+	margin-top: 20px;
 	width: 40vw;
 	height: 20vh;
 	text-align: center;
@@ -28,6 +28,8 @@
 }
 /* Store headers */
 .store h2 {
+	margin: 0;
+	padding: 10px 0;
 	text-align: center;
 	font-size: 1.5em;
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -74,4 +76,14 @@
 }
 .shop-active {
 	overflow-y: hidden;
+}
+.off {
+	float: right;
+	margin: 0 15px;
+	color: rgb(255, 134, 134);
+	transition: 0.3s all ease-in-out;
+	cursor: pointer;
+}
+.off:hover {
+	color: red;
 }

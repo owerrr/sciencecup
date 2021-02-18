@@ -1,39 +1,39 @@
-input{
-    width: 50px;
+input {
+	width: 50px;
 }
-.game-box_screen{
-    background-color:rgb(10,10,10,1);
-    margin:auto;
+.game-box_screen {
+	background-color: rgb(10, 10, 10, 1);
+	margin: auto;
 }
-.game-box{
-    background-color:rgba(50,50,50,1);
-    margin-top:1vh;
-    width:100%;
-    min-height:50vh;
-    box-shadow: 0px -5px 53px -4px rgba(0,0,0,0.75);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 5px;
+.game-box {
+	background-color: rgba(50, 50, 50, 1);
+	margin-top: 1vh;
+	width: 100%;
+	min-height: 50vh;
+	box-shadow: 0px -5px 53px -4px rgba(0, 0, 0, 0.75);
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 5px;
 }
-.box-block{
-    width:64px;
-    height:64px;
+.box-block {
+	width: 64px;
+	height: 64px;
 
-    background-color:rgb(10,10,10,1);
-    float:left;
+	background-color: rgb(10, 10, 10, 1);
+	float: left;
 }
-body{
-    margin: 0;
-    padding: 0;
+body {
+	margin: 0;
+	padding: 0;
 }
-#container{
-    margin-top: 10px;
+#container {
+	margin-top: 10px;
 }
-#inputs{
-    margin-left: 10px;
+#inputs {
+	margin-left: 10px;
 }
-#copy-button{
-    margin-right: 10px;
-    float: right;
-    width: auto;
+#copy-button {
+	margin-right: 10px;
+	float: right;
+	width: auto;
 }
