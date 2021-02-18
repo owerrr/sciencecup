@@ -1,7 +1,12 @@
 let game;
 let levels = [
-    {"height":11,"width":8,"objects":[{"type":"box","movable":true,"pos":[34,43,50]},{"type":"wall","movable":false,"pos":[19,20,26,29,58,67,68,61]},{"type":"point","movable":false,"collision":true,"pos":[37,44,53]}],"player":73},
-    {"height":7,"width":8,"objects":[{"type":"box","movable":true,"pos":[18,26,34,37,21]},{"type":"wall","movable":false,"pos":[28,30,11,43]},{"type":"point","movable":false,"collision":true,"pos":[20,19,27,35,36]}],"player":25},
+    {"height":6,"width":11,"objects":[{"type":"box","movable":true,"pos":[43,36,35,26,28,40,41]},{"type":"wall","movable":false,"pos":[48,37,38,39,50,16]},{"type":"point","movable":false,"collision":true,"pos":[10,34,20,27,15,14,13,17,18,19]}],"player":27},
+    {"height":7,"width":7,"objects":[{"type":"box","movable":true,"pos":[35,24,23,16,17,18,25,32,31,30]},{"type":"wall","movable":false,"pos":[5]},{"type":"point","movable":false,"collision":true,"pos":[13,14,15,29,36,37,39,40,33,12,8]}],"player":24},
+    {"height":9,"width":9,"objects":[{"type":"box","movable":true,"pos":[22,51,60,59,58,57,56,47,38,39,40,41]},{"type":"wall","movable":false,"pos":[20,29,21,33,42]},{"type":"point","movable":false,"collision":true,"pos":[15,24,25,16,34,52,61,70,69,68,37,46]}],"player":48},
+    {"height":11,"width":11,"objects":[{"type":"box","movable":true,"pos":[24,36,26,48,38,28,60,50,40,30]},{"type":"wall","movable":false,"pos":[46,57,68,69,100,89,90,79,108,97,96,85,74,73,63,52]},{"type":"point","movable":false,"collision":true,"pos":[71,83,81,93,91,95,107,105,103,101]}],"player":16},
+    {"height":16,"width":11,"objects":[{"type":"box","movable":true,"pos":[27,41,35,57,79,63,85,107,129]},{"type":"wall","movable":false,"pos":[15,16,17,38,39,40,49,37,36,47,58,69,80,91,102,113,124,135,61,62,73,84,95,106,157,151,152,150,161,139,138,127,116,105,122,111,100]},{"type":"point","movable":false,"collision":true,"pos":[48,60,59,70,71,72,83,82,94]}],"player":140},
+    {"height":9,"width":9,"objects":[{"type":"box","movable":true,"pos":[27,57,79,63,85,107,129,21,47,48,49,58,51,60]},{"type":"wall","movable":false,"pos":[15,16,39,36,69,80,91,102,113,124,135,61,62,73,84,95,106,157,151,152,150,161,139,138,127,116,105,122,111,100,13,22,31,40,41,42,43,19]},{"type":"point","movable":false,"collision":true,"pos":[59,70,71,72,83,82,94,10,11,20,29,38,37,46]}],"player":52},
+    {"height":9,"width":9,"objects":[{"type":"box","movable":true,"pos":[51,60,58,57,56,47,39,40,41]},{"type":"wall","movable":false,"pos":[19,28,22,13,23,14,15,24,33,42,43,59]},{"type":"point","movable":false,"collision":true,"pos":[10,11,12,20,29,38,37,46,31]}],"player":48},
 ]
 let gameImages = {
     player: {
