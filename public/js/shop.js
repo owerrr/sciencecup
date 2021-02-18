@@ -2,8 +2,10 @@ function registerShop(){
     document.getElementById('shop').onclick = ()=>{
         document.querySelector('.store').classList.toggle('active')
         document.body.classList.toggle('shop-active')
+        if(document.querySelector(".store").classList.contains("active")){
+            changeImage(null)
+        }
         showOption('Colors')
-        changeImage("")
     }
     document.getElementsByName("shop-color").forEach(option => {
         option.onclick = function(){
@@ -33,6 +35,10 @@ function showOption(val) {
     }
 }
 function changeImage(value){
+    if(value == null){
+        document.getElementById("shop-image").src = gameImages.player.src;
+        return;
+    }
     gameImages.player.src = `public/img/player-static${value}.png`
     document.getElementById("shop-image").src = `public/img/player-static${value}.png`
     game.player.image.src = `public/img/player-static${value}.png`
