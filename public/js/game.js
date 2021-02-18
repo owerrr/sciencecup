@@ -9,14 +9,20 @@ function clearGame(){
 }
 class Game {
     constructor(level) {
+        this.point = 0;
         this.level = level;
         this.height = levels[level].height;
         this.width = levels[level].width;
         this.player = new Object(levels[level].player, true, "player");
         this.objects = [];
+        this.points = [];
         levels[level].objects.forEach(e => {
             e.pos.forEach(n => {
-                this.objects.push(new Object(n, e.movable, e.type))
+                if(e.type == "point"){
+                    this.points.push(n)
+                } else {
+                    this.objects.push(new Object(n, e.movable, e.type))
+                }
             })
         })
     }
@@ -29,8 +35,6 @@ class Game {
                 let div = document.createElement("div");
                 div.style.float = "left";
                 div.classList.add("box-block");
-                div.classList.add("height-" + h);
-                div.classList.add("row-" + w);
                 div.id = "box-" + i;
                 document.querySelector(".game-box_screen").append(div);
                 if (h == 0 || h == this.height - 1 || w == 0 || w == this.width - 1) {
@@ -42,7 +46,6 @@ class Game {
         }
     }
     registerPlayerEvent() {
-        //document.querySelector("#player").src = gameImages.playerMove.src;
         document.onkeydown = (e) => {
             if (e.keyCode == '38') {
                 this.player.moveObject('up')
@@ -57,18 +60,17 @@ class Game {
                 this.player.moveObject('right')
             }
         }
-        document.onkeyup= (e) => {
+        document.onkeyup = (e) => {
             document.querySelector("#player").src = gameImages.player.src;
         }
     }
     drawObjects() {
         this.player.drawObject();
         this.objects.forEach(e => {
-            if (e.type == "point") {
-                document.querySelectorAll(".box-block")[e.pos].background = "url('" + gameImages.point.src + "')"
-            } else {
-                e.drawObject();
-            }
+            e.drawObject();
+        })
+        this.points.forEach(e => {
+            document.querySelectorAll(".box-block")[e].classList.add("point")
         })
     }
 }
@@ -80,7 +82,6 @@ class Object {
         this.image = document.createElement('img');
         this.type = type;
         this.dir = dir;
-        this.isMoving = false;
         switch (type) {
             case 'player':
                 this.image.src = gameImages.player.src;
@@ -104,8 +105,10 @@ class Object {
         if(document.querySelectorAll(".box-block")[last] != null){
             document.querySelectorAll(".box-block")[last].removeChild(document.querySelectorAll(".box-block")[last].children[0]);
         }
-        document.querySelectorAll(".box-block")[this.pos].appendChild(this.image);
-        this.rotateObject(this.dir);
+        if(document.querySelectorAll(".box-block")[this.pos] != null){
+            document.querySelectorAll(".box-block")[this.pos].appendChild(this.image);
+            this.rotateObject(this.dir);
+        }
     }
     rotateObject(dir){
         this.dir = dir;
@@ -144,10 +147,12 @@ class Object {
         return true;
     }
     move(dir) {
+        checkPoints()
         this.pos += dir;
         this.drawObject(this.pos - dir);
     }
     checkMove(pos) {
+
         if (document.querySelectorAll(".box-block")[pos].children.length > 0) {
             if (document.querySelectorAll(".box-block")[pos].children[0].classList.contains("move_false")) {
                 return false;
@@ -160,12 +165,8 @@ class Object {
                     if (this.type == e.type) {
                         mov = false;
                     }
-                    if (mov) {
-                        if (e.movable) {
-                            if (e.pos == pos) {
-                                mov = e.moveObject(this.dir);
-                            }
-                        }
+                    if (mov && e.movable && e.pos == pos) {
+                        mov = e.moveObject(this.dir);
                     }
                 })
             }
@@ -173,3 +174,12 @@ class Object {
         return mov;
     }
 }
+
+function checkPoints(){
+    game.point = Array.from(document.querySelectorAll(".point")).filter(e => { return (e.children[0] != null && e.children[0].id == "box")}).length
+
+    if(game.point == game.points.length){
+        console.log("wygrana!")
+    }
+}
+
