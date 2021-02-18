@@ -16,10 +16,6 @@ function registerShop(){
             changeImage(value)
         }
     })
-    document.getElementsByName("shop-hat").forEach(option => {
-        // TODO, CZAPKI
-        
-    })
 }
 function showOption(val) {
     switch(val){
@@ -27,12 +23,6 @@ function showOption(val) {
             document.querySelector('.colors').classList.toggle('active')
             if(document.querySelector('.hats').classList.contains('active')){
                 document.querySelector('.hats').classList.toggle('active')
-            }
-            break;
-        case 'Hats':
-            document.querySelector('.hats').classList.toggle('active')
-            if(document.querySelector('.colors').classList.contains('active')){
-                document.querySelector('.colors').classList.toggle('active')
             }
             break;
     }
@@ -45,4 +35,5 @@ function changeImage(value){
     gameImages.player.src = `public/img/player-static${value}.png`
     document.getElementById("shop-image").src = `public/img/player-static${value}.png`
     game.player.image.src = `public/img/player-static${value}.png`
+    gamImages.playermove.src = `public/img/player-static${value}.gif`
 }
