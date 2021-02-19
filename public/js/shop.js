@@ -31,5 +31,5 @@ function changeImage(value){
     gameImages.player.src = `public/img/player-static${value}.png`
     document.getElementById("shop-image").src = `public/img/player-static${value}.png`
     game.player.image.src = `public/img/player-static${value}.png`
-    gamImages.playermove.src = `public/img/player-static${value}.gif`
+    gameImages.playermove.src = `public/img/player-static${value}.gif`
 }

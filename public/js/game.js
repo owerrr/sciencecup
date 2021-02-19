@@ -1,9 +1,11 @@
-let timer;
 function runGame(level) {
     game = new Game(level - 1);
     game.createTable();
     game.registerPlayerEvent();
     game.drawObjects();
+}
+function clearGame(){
+    document.querySelector(".game-box_screen").innerHTML = "";
 }
 class Game {
     constructor(level) {
@@ -25,9 +27,6 @@ class Game {
                 }
             })
         })
-    }
-    clearGame(){
-        document.querySelector(".game-box_screen").innerHTML = "";
     }
     checkPoints(){
         game.point = Array.from(document.querySelectorAll(".point")).filter(e => { return (e.children[0] != null && e.children[0].id == "box")}).length
@@ -66,21 +65,24 @@ class Game {
     }
     registerPlayerEvent() {
         document.onkeydown = (e) => {
-            if (e.keyCode == '38') {
-                this.player.moveObject('up')
+            switch(e.keyCode + ""){
+                case '37':
+                    this.player.moveObject('left')
+                    break;
+                case '38':
+                    this.player.moveObject('up')
+                    break;
+                case '39':
+                    this.player.moveObject('right')
+                    break;
+                case '40':
+                    this.player.moveObject('down')
+                    break;
+                case '82':
+                    clearGame();
+                    runGame(game.level + 1);
+                    break;
             }
-            else if (e.keyCode == '40') {
-                this.player.moveObject('down')
-            }
-            else if (e.keyCode == '37') {
-                this.player.moveObject('left')
-            }
-            else if (e.keyCode == '39') {
-                this.player.moveObject('right')
-            }
-        }
-        document.onkeyup = (e) => {
-            document.querySelector("#player").src = gameImages.player.src;
         }
     }
     drawObjects() {
@@ -93,7 +95,6 @@ class Game {
         })
     }
 }
-
 class Object {
     constructor(pos, move, type, dir = "up") {
         this.pos = pos;
@@ -178,7 +179,6 @@ class Object {
         this.drawObject(this.pos - dir);
     }
     checkMove(pos) {
-
         if (document.querySelectorAll(".box-block")[pos].children.length > 0) {
             if (document.querySelectorAll(".box-block")[pos].children[0].classList.contains("move_false")) {
                 return false;
@@ -188,12 +188,8 @@ class Object {
         if (document.querySelectorAll(".box-block")[pos].children.length > 0) {
             if (document.querySelectorAll(".box-block")[pos].children[0].classList.contains("move_true")) {
                 game.objects.forEach(e => {
-                    if (this.type == e.type) {
-                        mov = false;
-                    }
-                    if (mov && e.movable && e.pos == pos) {
-                        mov = e.moveObject(this.dir);
-                    }
+                    if (this.type == e.type) mov = false;
+                    if (mov && e.movable && e.pos == pos) mov = e.moveObject(this.dir);
                 })
             }
         }
