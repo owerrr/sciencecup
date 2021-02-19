@@ -9,6 +9,11 @@ window.onload = () => {
         }
     })
     registerShop()
+    
+    setTimeout(() => {
+        document.querySelector('.loading-screen').classList.add('off')
+        document.body.style.overflowY = 'visible'
+      }, 1000)
 }
 function getTime(){
     let s = game.stoper
