@@ -5,9 +5,9 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href="public\css\main.css" rel="stylesheet">
     <link href="public\css\shop.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <script src="public\js\shop.js"></script>
     <script src="public\js\main.js"></script>
     <script src="public\js\settings.js"></script>
@@ -28,6 +28,7 @@
         <div style="clear:both;"></div>
         </nav>
         <div class="game-header">
+            <div id="info"><div id="moves"></div><div id="timer"></div></div>
             <br />
             <ul class="game-header_utilities-bar">
                 <li class="level-select level">1</li>
@@ -51,15 +52,14 @@
         <container class="store">
             <h2>Garderoba <i class="fas fa-tshirt"></i> <i class="fas fa-power-off off" name='off'></i></h2>
             <article class="store-item">
-                <input class='category' type="button" value="Kolor" onclick="showOption('Colors')">
+                <input class='category' type="button" value="Ubrania">
                 <div class="colors">
-                    <p>Kolory:<p>
-                        <label><input type="radio" name='shop-color' id="shop-pink" class='option-color'>Różowy</label>
-                        <label><input type="radio" name='shop-color' id="shop-black" class='option-color'>Czarny</label>
-                        <label><input type="radio" name='shop-color' id="shop-yellow" class='option-color'>Żółty</label>
-                        <label><input type="radio" name='shop-color' id="shop-kowboj" class='option-color'>Kowboj</label>
-                        <label><input type="radio" name='shop-color' id="shop-knight" class='option-color'>Rycerz</label>
-                        <label><input type="radio" name='shop-color' id="shop" class='option-color'>Brak</label>
+                    <label><input type="radio" name='shop-color' id="shop-pink" class='option-color'>Różowy</label>
+                    <label><input type="radio" name='shop-color' id="shop-black" class='option-color'>Czarny</label>
+                    <label><input type="radio" name='shop-color' id="shop-yellow" class='option-color'>Żółty</label>
+                    <label><input type="radio" name='shop-color' id="shop-kowboj" class='option-color'>Kowboj</label>
+                    <label><input type="radio" name='shop-color' id="shop-knight" class='option-color'>Rycerz</label><br>
+                    <label><input type="radio" name='shop-color' id="shop" class='option-color'>Brak</label>
                 </div>
             </article>
             <article class="store-item">

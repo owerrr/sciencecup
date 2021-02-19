@@ -1,15 +1,15 @@
+let timer;
 function runGame(level) {
     game = new Game(level - 1);
     game.createTable();
     game.registerPlayerEvent();
     game.drawObjects();
 }
-function clearGame(){
-    document.querySelector(".game-box_screen").innerHTML = "";
-}
 class Game {
     constructor(level) {
         this.point = 0;
+        this.moves = 0;
+        this.stoper = 0;
         this.level = level;
         this.height = levels[level].height;
         this.width = levels[level].width;
@@ -25,6 +25,25 @@ class Game {
                 }
             })
         })
+    }
+    clearGame(){
+        document.querySelector(".game-box_screen").innerHTML = "";
+    }
+    checkPoints(){
+        game.point = Array.from(document.querySelectorAll(".point")).filter(e => { return (e.children[0] != null && e.children[0].id == "box")}).length
+        if(game.point == game.points.length){
+            this.showWin()
+        }
+    }
+    showWin(){
+        window.clearTimeout(timer)
+        console.log("wygrana!")
+    }
+    startTimer(){
+        timer = setInterval(function(){
+            document.getElementById("timer").innerHTMl = getTime();
+            game.stoper++;
+        }, 1000);
     }
     createTable() {
         document.querySelector(".game-box_screen").style.width = this.width * 64 + "px";
@@ -147,7 +166,14 @@ class Object {
         return true;
     }
     move(dir) {
-        checkPoints()
+        if(this.type == "player") {
+            if(game.moves == 0){
+                game.startTimer();
+            }
+            game.moves++;
+            document.getElementById("moves").innerHTML = game.moves;
+        };
+        game.checkPoints()
         this.pos += dir;
         this.drawObject(this.pos - dir);
     }
@@ -174,12 +200,3 @@ class Object {
         return mov;
     }
 }
-
-function checkPoints(){
-    game.point = Array.from(document.querySelectorAll(".point")).filter(e => { return (e.children[0] != null && e.children[0].id == "box")}).length
-
-    if(game.point == game.points.length){
-        console.log("wygrana!")
-    }
-}
-

@@ -6,7 +6,7 @@ function registerShop(){
             if(document.querySelector(".store").classList.contains("active")){
                 changeImage(null)
             }
-            showOption('Colors')
+            showOption()
         }
     })
 
