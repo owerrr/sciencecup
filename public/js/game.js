@@ -3,6 +3,7 @@ function runGame(level) {
     game.createTable();
     game.registerPlayerEvent();
     game.drawObjects();
+    document.querySelector('.game-box').id = level;
 }
 function clearGame(){
     document.querySelector(".game-box_screen").innerHTML = "";
@@ -36,7 +37,7 @@ class Game {
     }
     showWin(){
         window.clearTimeout(timer)
-        console.log("wygrana!")
+        document.querySelector('.won').style.display = 'block'
     }
     startTimer(){
         timer = setInterval(function(){
