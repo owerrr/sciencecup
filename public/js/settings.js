@@ -1,4 +1,5 @@
 let game;
+let timer;
 let levels = [
     {"height":6,"width":11,"objects":[{"type":"box","movable":true,"pos":[36,35,26,28,40,41]},{"type":"wall","movable":false,"pos":[48,37,38,39,50,16]},{"type":"point","movable":false,"collision":true,"pos":[13,14,15,18,19,20]}],"player":27},
     {"height":7,"width":7,"objects":[{"type":"box","movable":true,"pos":[23,30,31,32,25,18,17,16]},{"type":"wall","movable":false,"pos":[]},{"type":"point","movable":false,"collision":true,"pos":[36,37,39,40,33,15,8,12]}],"player":24},
