@@ -4,6 +4,7 @@ function runGame(level) {
     game.createTable();
     game.registerPlayerEvent();
     game.drawObjects();
+    document.querySelector('.game-box').id = level;
 }
 class Game {
     constructor(level) {
@@ -37,7 +38,7 @@ class Game {
     }
     showWin(){
         window.clearTimeout(timer)
-        console.log("wygrana!")
+        document.querySelector('.won').style.display = 'block'
     }
     startTimer(){
         timer = setInterval(function(){
