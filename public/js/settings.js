@@ -8,6 +8,7 @@ let levels = [
     {"height":9,"width":10,"objects":[{"type":"box","movable":true,"pos":[33,34,35,36,46,56,55,54,53,43]},{"type":"wall","movable":false,"pos":[12,21,17,28,68,77,72,61,11,18,78,71]},{"type":"point","movable":false,"collision":true,"pos":[13,22,31,76,67,58,38,27,51,62]}],"player":45},
     {"height":9,"width":9,"objects":[{"type":"box","movable":true,"pos":[22,51,60,59,58,57,56,47,38,39,40,41]},{"type":"wall","movable":false,"pos":[20,29,21,33,42]},{"type":"point","movable":false,"collision":true,"pos":[15,24,25,16,34,52,61,70,69,68,37,46]}],"player":48},
     {"height":9,"width":9,"objects":[{"type":"box","movable":true,"pos":[51,60,58,57,56,47,39,40,41]},{"type":"wall","movable":false,"pos":[19,28,22,13,23,14,15,24,33,42,43,59]},{"type":"point","movable":false,"collision":true,"pos":[10,11,12,20,29,38,37,46,31]}],"player":48},
+    {"height":6,"width":11,"objects":[{"type":"box","movable":true,"pos":[35,24,26,28,30,41]},{"type":"wall","movable":false,"pos":[38,37,39,50,48]},{"type":"point","movable":false,"collision":true,"pos":[13,14,15,16,17,18]}],"player":27},
 ]
 let gameImages = {
     player: {

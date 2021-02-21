@@ -1,10 +1,7 @@
 let timer;
 function runGame(level) {
     game = new Game(level - 1);
-    game.createTable();
-    game.registerPlayerEvent();
-    game.drawObjects();
-    document.querySelector('.game-box').id = level;
+    game.loadGame();
 }
 class Game {
     constructor(level) {
@@ -27,23 +24,28 @@ class Game {
             })
         })
     }
+    loadGame(){
+        this.createTable();
+        this.registerPlayerEvent();
+        this.drawObjects();
+        this.showInfo();
+        document.querySelector('.game-box').id = this.level;
+    }
     clearGame(){
         document.querySelector(".game-box_screen").innerHTML = "";
     }
     checkPoints(){
         game.point = Array.from(document.querySelectorAll(".point")).filter(e => { return (e.children[0] != null && e.children[0].id == "box")}).length
         if(game.point == game.points.length){
-            this.showWin()
+            //Win section
+            window.clearTimeout(timer)
+            document.querySelector('.won').style.display = 'block'
         }
-    }
-    showWin(){
-        window.clearTimeout(timer)
-        document.querySelector('.won').style.display = 'block'
     }
     startTimer(){
         timer = setInterval(function(){
-            document.getElementById("timer").innerHTMl = getTime();
             game.stoper++;
+            document.getElementById("timer").innerHTMl = game.stoper
         }, 1000);
     }
     createTable() {
@@ -80,9 +82,6 @@ class Game {
                 this.player.moveObject('right')
             }
         }
-        document.onkeyup = (e) => {
-            document.querySelector("#player").src = gameImages.player.src;
-        }
     }
     drawObjects() {
         this.player.drawObject();
@@ -92,6 +91,10 @@ class Game {
         this.points.forEach(e => {
             document.querySelectorAll(".box-block")[e].classList.add("point")
         })
+    }
+    showInfo(){
+        document.getElementById("moves").innerHTMl = game.moves// + " " + getTime();
+        //document.getElementById("timer").innerHTMl = game.stoper;
     }
 }
 
@@ -172,14 +175,13 @@ class Object {
                 game.startTimer();
             }
             game.moves++;
-            document.getElementById("moves").innerHTML = game.moves;
+            document.getElementById("moves").innerHTMl = game.moves
         };
         game.checkPoints()
         this.pos += dir;
         this.drawObject(this.pos - dir);
     }
     checkMove(pos) {
-
         if (document.querySelectorAll(".box-block")[pos].children.length > 0) {
             if (document.querySelectorAll(".box-block")[pos].children[0].classList.contains("move_false")) {
                 return false;

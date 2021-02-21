@@ -5,20 +5,36 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="sokoban in html5">
+    <meta name="keywords" conten=""sokoban, sokoban in html5, sokoban in js, simple game, sokoban game>
+    <meta name="author" content="Masło#2844, xAxee#1287, owr#6062, AugustIn#8259, Stryszko#9867">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link href="public\css\main.css" rel="stylesheet">
     <link href="public\css\shop.css" rel="stylesheet">
-    <script src="public\js\shop.js"></script>
+    
+    <!-- JS -->
     <script src="public\js\main.js"></script>
     <script src="public\js\settings.js"></script>
+    <script src="public\js\shop.js"></script>
     <script src="public\js\game.js"></script>
     
 </head>
 
 <body>
+    <!-- Loader -->
     <container class="loading-screen">
         <img src="public/img/player-moving.gif" alt="">
+        <img src="public/img/box.png" id='box-loader' alt="">
      </container>
+             <!--Select level of difficult-->
+             <container class="difficult">
+                <div class="difficult-level easy">Łatwy</div>
+                <div class="difficult-level medium">Trudny</div>
+                <div class="difficult-level hard">Szypki</div>         
+            </container>
     <div class="game-container">
         <!-- NAV WITH UTILITIES -->
         <nav class="navbar">
