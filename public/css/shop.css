@@ -79,13 +79,17 @@
 .shop-active {
 	overflow-y: hidden;
 }
-.off {
+.off-shop {
 	float: right;
 	margin: 0 15px;
 	color: rgb(255, 134, 134);
 	transition: 0.3s all ease-in-out;
 	cursor: pointer;
 }
-.off:hover {
+.off-shop:hover {
 	color: red;
+}
+.store label {
+	display: block;
+	margin: 5px 0;
 }

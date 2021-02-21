@@ -252,7 +252,7 @@ body {
 	left: 0;
 	right: 0;
 	text-align: center;
-	width: 375px;
+	width: 400px;
 	background-color: #111;
 	color: white;
 	font-family: Arial, Helvetica, sans-serif;
@@ -260,7 +260,7 @@ body {
 	white-space: nowrap;
 	border-right: 3px solid white;
 	display: none;
-	animation: changeWidth 3s steps(40, end), cursorEffect 0.75s step-end infinite;
+	animation: changeWidth 2s steps(40, end), cursorEffect 0.75s step-end infinite;
 }
 .next-level {
 	cursor: pointer;
