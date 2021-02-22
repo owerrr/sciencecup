@@ -28,20 +28,22 @@
     <container class="loading-screen">
         <img src="public/img/player-moving.gif" alt="">
         <img src="public/img/box.png" id='box-loader' alt="">
-     </container>
-             <!--Select level of difficult-->
-             <container class="difficult">
-                <div class="difficult-level easy">Łatwy</div>
-                <div class="difficult-level medium">Trudny</div>
-                <div class="difficult-level hard">Szypki</div>         
-            </container>
+    </container>
+    <!--Select level of difficult-->
+    <container class="difficult">
+        <h4>Wybierz poziom trudności:</h4>
+        <input class='ncinput' id='easy' type="button" value="Łatwy" onclick='changeDifficult("easy")'>
+        <input class='ncinput' id='medium' type="button" value="Średni" onclick='changeDifficult("medium")'>
+        <input class='ncinput' id='hard' type="button" value="Trudny" onclick='changeDifficult("hard")'>
+    </container>
     <div class="game-container">
         <!-- NAV WITH UTILITIES -->
         <nav class="navbar">
         <h1>Sokoban <i class="fas fa-people-carry"></i></h1>
         <ul>
+            <li id='diff'>Change difficult</li>
             <li id='shop' name='off'>Garderoba</li>
-            <li>Autorzy</li> 
+            <li>Autorzy</li>
             <div style="clear:both;"></div>
         </ul>
         <div style="clear:both;"></div>
@@ -71,7 +73,7 @@
         <container class="store">
             <h2>Garderoba <i class="fas fa-tshirt"></i> <i class="fas fa-power-off off-shop" name='off'></i></h2>
             <article class="store-item">
-                <input class='category' type="button" value="Ubrania" onclick= "showOption('colors')">
+                <input class='ncinput' type="button" value="Ubrania" onclick= "showOption('colors')">
                 <div class="colors">
                     <label><input type="radio" name='shop-color' id="shop-pink" class='option-color'>Różowy</label>
                     <label><input type="radio" name='shop-color' id="shop-black" class='option-color'>Czarny</label>

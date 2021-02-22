@@ -30,6 +30,10 @@ window.onload = () => {
         document.querySelector('.won').style.display = 'none'
         document.getElementById('moves').innerHTML=''
     }
+    
+    document.querySelector('#diff').onclick = ()=>{
+        document.querySelector('.difficult').classList.toggle('chosen')
+    }
 }
 
 //get time string

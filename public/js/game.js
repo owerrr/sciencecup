@@ -203,3 +203,14 @@ class Object {
         return mov;
     }
 }
+function changeDifficult(val){
+    document.querySelector('.difficult').classList.add('chosen')
+    switch(val){
+        case "easy":
+            break;
+        case "medium":
+            break;
+        case "hard":
+            break;        
+    }
+}
