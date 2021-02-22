@@ -92,13 +92,22 @@ body {
 	float: left;
 }
 #easy {
-	background-color: green;
+	background-color: rgb(0, 255, 0);
+}
+#easy:hover {
+	background-color: rgb(100, 255, 100);
 }
 #medium {
 	background-color: orange;
 }
+#medium:hover {
+	background-color: rgb(255, 201, 100);
+}
 #hard {
-	background-color: red;
+	background-color: rgb(255, 0, 0);
+}
+#hard:hover {
+	background-color: rgb(255, 100, 100);
 }
 .chosen {
 	width: 0;
@@ -313,6 +322,7 @@ body {
 	right: 0;
 	text-align: center;
 	width: 400px;
+	height: 200px;
 	background-color: #111;
 	color: white;
 	font-family: Arial, Helvetica, sans-serif;
@@ -320,7 +330,7 @@ body {
 	white-space: nowrap;
 	border-right: 3px solid white;
 	display: none;
-	animation: changeWidth 2s steps(40, end), cursorEffect 0.75s step-end infinite;
+	transition: 2s all ease-in-out;
 }
 .next-level {
 	cursor: pointer;
@@ -328,14 +338,6 @@ body {
 }
 .next-level:hover {
 	color: #c2c2c2;
-}
-@keyframes changeWidth {
-	from {
-		width: 0;
-	}
-	to {
-		width: 375px;
-	}
 }
 @keyframes cursorEffect {
 	from,

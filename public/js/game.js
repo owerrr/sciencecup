@@ -1,5 +1,8 @@
 let timer;
 function runGame(level) {
+    if(game != null){
+        game.clearGame();   
+    }
     game = new Game(level - 1);
     game.loadGame();
 }
@@ -8,6 +11,7 @@ class Game {
         this.point = 0;
         this.moves = 0;
         this.stoper = 0;
+        this.win = false;
         this.level = level;
         this.height = levels[level].height;
         this.width = levels[level].width;
@@ -29,7 +33,7 @@ class Game {
         this.registerPlayerEvent();
         this.drawObjects();
         this.showInfo();
-        document.querySelector('.game-box').id = this.level;
+
     }
     clearGame(){
         document.querySelector(".game-box_screen").innerHTML = "";
@@ -37,15 +41,21 @@ class Game {
     checkPoints(){
         game.point = Array.from(document.querySelectorAll(".point")).filter(e => { return (e.children[0] != null && e.children[0].id == "box")}).length
         if(game.point == game.points.length){
+            this.win = true;
             //Win section
             window.clearTimeout(timer)
             document.querySelector('.won').style.display = 'block'
+            document.querySelector('.moves').innerHTML = "Ilość wykonanych ruchów: "+game.moves+"<br>Czas poświęcony na przejście poziomu: "+game.stoper+" sekund.";
+            document.querySelector('.won').animate({ width: "400px", height: "200px" }, 1000 )
+
+            console.log(game.moves)
         }
     }
     startTimer(){
         timer = setInterval(function(){
             game.stoper++;
-            document.getElementById("timer").innerHTMl = game.stoper
+            console.log(game.stoper)
+            document.getElementById("timer").innerHTMl = game.stoper + ""
         }, 1000);
     }
     createTable() {
@@ -69,6 +79,33 @@ class Game {
     }
     registerPlayerEvent() {
         document.onkeydown = (e) => {
+            switch(e.keyCode + ''){
+                case '37':
+                    this.player.moveObject('left')
+                    break;
+                case '38':
+                    this.player.moveObject('up')
+                    break;
+                case '39':
+                    this.player.moveObject('right')
+                    break;
+                case '40':
+                    this.player.moveObject('down')
+                    break;
+                case '82':
+                    runGame(game.level + 1);
+                    break;
+                case '85':
+                    //TODO UNDO
+                    break;
+                case '78':
+                    runGame(game.level + 2);
+                    break;
+                default:
+                    console.log(e.keyCode);
+                    break;
+            }
+            /*
             if (e.keyCode == '38') {
                 this.player.moveObject('up')
             }
@@ -80,7 +117,7 @@ class Game {
             }
             else if (e.keyCode == '39') {
                 this.player.moveObject('right')
-            }
+            }*/
         }
     }
     drawObjects() {
@@ -93,8 +130,7 @@ class Game {
         })
     }
     showInfo(){
-        document.getElementById("moves").innerHTMl = game.moves// + " " + getTime();
-        //document.getElementById("timer").innerHTMl = game.stoper;
+        document.getElementById("moves").innerHTMl = game.moves
     }
 }
 
@@ -124,6 +160,7 @@ class Object {
         this.image.classList.add("move_" + this.movable);
         this.image.id = type;
     }
+    //draw object
     drawObject(last) {
         if(document.querySelectorAll(".box-block")[last] != null){
             document.querySelectorAll(".box-block")[last].removeChild(document.querySelectorAll(".box-block")[last].children[0]);
@@ -146,6 +183,7 @@ class Object {
             }
         }
     }
+    //Move object
     moveObject(direction) {
         if (!this.movable) return false;
         this.rotateObject(direction)
@@ -170,12 +208,13 @@ class Object {
         return true;
     }
     move(dir) {
+        if(game.win == true) return;
         if(this.type == "player") {
             if(game.moves == 0){
                 game.startTimer();
             }
             game.moves++;
-            document.getElementById("moves").innerHTMl = game.moves
+            document.getElementById("moves").innerHTML = game.moves
         };
         game.checkPoints()
         this.pos += dir;

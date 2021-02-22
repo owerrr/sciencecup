@@ -2,12 +2,17 @@ window.onload = () => {
 
     runGame(1)
     //Level selector 
+    
     document.querySelectorAll("li.level").forEach(e => {
         e.onclick = () => {
-            document.querySelector(".level-select").classList.toggle("level-select");
-            e.classList.toggle("level-select")
-            game.clearGame()
+            document.querySelector(".level-select").classList.toggle("level-select"); //off
+            e.classList.toggle("level-select") //on
             runGame(e.innerHTML)
+            $('.won').css( "display", "none")
+            $('.won').css( "height", "50px")
+            $('.won').css( "width", "0")
+            document.getElementById('moves').innerHTML= '0'
+            document.querySelector('.game-box').id = game.level + 1;
         }
     })
     registerShop()
@@ -20,21 +25,14 @@ window.onload = () => {
 
     //Win game screen
     document.querySelector('.next-level').onclick = () => {
-        game.clearGame()
-        if(parseInt(document.querySelector('.game-box').id) == levels.length+1){
-            document.querySelector('.game-box').id = '0'
-        }
-        document.querySelector(".level-select").classList.toggle("level-select");
-        document.querySelectorAll(".level")[parseInt(document.querySelector('.game-box').id)].classList.toggle("level-select");
-        runGame(parseInt(document.querySelector('.game-box').id)+1)
-        document.querySelector('.won').style.display = 'none'
-        document.getElementById('moves').innerHTML=''
+        //create changelevel function
     }
     
-    document.querySelector('#diff').onclick = ()=>{
+    document.querySelector('#diff').onclick = () =>{
         document.querySelector('.difficult').classList.toggle('chosen')
     }
 }
+//Utilities
 
 //get time string
 function getTime(){
