@@ -11,7 +11,7 @@ class Game {
         this.point = 0;
         this.moves = 0;
         this.stoper = 0;
-        this.win = false;
+        this.canMove = false;
         this.level = level;
         this.height = levels[level].height;
         this.width = levels[level].width;
@@ -33,19 +33,22 @@ class Game {
         this.registerPlayerEvent();
         this.drawObjects();
         this.showInfo();
+        document.querySelector(".level-select").classList.toggle("level-select"); //off
+        document.querySelectorAll("li.level")[this.level].classList.toggle("level-select") //on
 
     }
     clearGame(){
+        window.clearTimeout(timer)
         document.querySelector(".game-box_screen").innerHTML = "";
     }
     checkPoints(){
         game.point = Array.from(document.querySelectorAll(".point")).filter(e => { return (e.children[0] != null && e.children[0].id == "box")}).length
         if(game.point == game.points.length){
-            this.win = true;
+            this.canMove = false;
             //Win section
             window.clearTimeout(timer)
             document.querySelector('.won').style.display = 'block'
-            document.querySelector('.moves').innerHTML = "Ilość wykonanych ruchów: "+game.moves+"<br>Czas poświęcony na przejście poziomu: "+game.stoper+" sekund.";
+            document.querySelector('.moves').innerHTML = "Ilość wykonanych ruchów: "+game.moves+"<br>Czas poświęcony na przejście poziomu: "+getTime();
             document.querySelector('.won').animate({ width: "400px", height: "200px" }, 1000 )
 
             console.log(game.moves)
@@ -208,7 +211,7 @@ class Object {
         return true;
     }
     move(dir) {
-        if(game.win == true) return;
+        if(!game.canMove) return;
         if(this.type == "player") {
             if(game.moves == 0){
                 game.startTimer();
@@ -240,16 +243,5 @@ class Object {
             }
         }
         return mov;
-    }
-}
-function changeDifficult(val){
-    document.querySelector('.difficult').classList.add('chosen')
-    switch(val){
-        case "easy":
-            break;
-        case "medium":
-            break;
-        case "hard":
-            break;        
     }
 }

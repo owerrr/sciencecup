@@ -1,18 +1,8 @@
 window.onload = () => {
-
     runGame(1)
-    //Level selector 
-    
     document.querySelectorAll("li.level").forEach(e => {
         e.onclick = () => {
-            document.querySelector(".level-select").classList.toggle("level-select"); //off
-            e.classList.toggle("level-select") //on
-            runGame(e.innerHTML)
-            $('.won').css( "display", "none")
-            $('.won').css( "height", "50px")
-            $('.won').css( "width", "0")
-            document.getElementById('moves').innerHTML= '0'
-            document.querySelector('.game-box').id = game.level + 1;
+            changeLevel(parseInt(e.innerHTML) - 1)
         }
     })
     registerShop()
@@ -22,18 +12,33 @@ window.onload = () => {
         document.querySelector('.loading-screen')
         document.body.style.overflowY = 'visible'
     }, 1000)
-
     //Win game screen
     document.querySelector('.next-level').onclick = () => {
-        //create changelevel function
+        changeLevel(game.level + 1)
     }
-    
+    //menu dificulty selector
     document.querySelector('#diff').onclick = () =>{
         document.querySelector('.difficult').classList.toggle('chosen')
+        game.canMove = false;
     }
+    document.querySelectorAll(".difficult").forEach( e => {
+        e.onclick = () => {
+            changeDifficult(e.id)
+        }
+    })
 }
 //Utilities
-
+function changeLevel(level){
+    if(document.querySelector('.difficult') !=null){
+        document.querySelector('.difficult').classList.toggle('chosen')
+    }
+    runGame(level+1);
+    $('.won').css( "display", "none")
+    $('.won').css( "height", "50px")
+    $('.won').css( "width", "0")
+    document.getElementById('moves').innerHTML= '0'
+    document.querySelector('.game-box').id = level+1;
+}
 //get time string
 function getTime(){
     let s = game.stoper
@@ -45,4 +50,16 @@ function getTime(){
     }
     ret = `${s}s`
     return ret;
+}
+function changeDifficult(val){
+    game.canMove = true;
+    document.querySelector('.difficult').classList.add('chosen')
+    switch(val){
+        case "easy":
+            break;
+        case "medium":
+            break;
+        case "hard":
+            break;        
+    }
 }
