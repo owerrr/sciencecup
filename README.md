@@ -13,11 +13,9 @@ Early alpha v0.2.0
     <summary>v0.1.0</summary>
 
 ```
-
 - [+] basic html site
 - [+] style.css for index.html
 - [+] box.png
-
 ```
 
 </details>
