@@ -1,18 +1,16 @@
-# sciencecup
+# Sciencecup - Sokoban
 
-### version
+It's our project of game created in 1980.
 
-====================
+Sokoban is a simple puzzle game, where player must set the correct arrangement of the crates. Originaly game was created in Japan by Hiroyuki Imabayashi.
 
-Acutall version of our Sokoban is v0.1.8
+## version
 
-### changelog
+Early alpha v0.2.0
 
-====================
-
+## changelog
+```
 v0.1.0
-
-Added:
 
 - [+] basic html site
 - [+] style.css for index.html
@@ -21,7 +19,7 @@ Added:
 v0.1.1
 
 - [+] main.js with player drawing
-- [/] style.css stylized pictures and main box with game
+- [/] style.css stylized pictures and main box
 
 v0.1.2
 
@@ -57,7 +55,7 @@ v0.1.5
 
 v0.1.6
 
-- [+] creator subsite with stylized css and working js
+- [+] creator with stylized css and working js
 - [+] player colors available in shop
 - [/] sorted settings.js
 
@@ -75,10 +73,20 @@ v0.1.8
 - [-] Player gif
 - [-] separated hats & colors of player
 
-====
+v0.1.9
 
-##### LEGEND:
+- [+] loading screen when joining site
+- [+] timer
+- [+] won window
+- [/] fixed some stuff
 
-- [+] - Add/New
-- [/] - Changed/Customized
-- [-] - Deleted/Resigned
+v0.2.0
+
+- [+] counting player moves
+- [+] added timer and moves to won window
+- [/] repairing animation of won window
+- [/] improved timer
+```
+
+###### &copy; 2021 | All rights reserved.
+
