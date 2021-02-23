@@ -1,6 +1,6 @@
 # Sciencecup - Sokoban
 
-It's our project of game created in 1980.
+It's our project of recreate game from 1980.
 
 Sokoban is a simple puzzle game, where player must set the correct arrangement of the crates. Originaly game was created in Japan by Hiroyuki Imabayashi.
 
