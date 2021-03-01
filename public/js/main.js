@@ -33,9 +33,7 @@ function changeLevel(level){
         document.querySelector('.difficult').classList.toggle('chosen')
     }
     runGame(level+1);
-    $('.won').css( "display", "none")
-    $('.won').css( "height", "50px")
-    $('.won').css( "width", "0")
+    document.querySelector('.won').classList.remove('won-on')
     document.getElementById('moves').innerHTML= '0'
     document.querySelector('.game-box').id = level+1;
 }

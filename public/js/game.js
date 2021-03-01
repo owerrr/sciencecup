@@ -47,10 +47,8 @@ class Game {
             this.canMove = false;
             //Win section
             window.clearTimeout(timer)
-            document.querySelector('.won').style.display = 'block'
+            document.querySelector('.won').classList.toggle('won-on')
             document.querySelector('.moves').innerHTML = "Ilość wykonanych ruchów: "+game.moves+"<br>Czas poświęcony na przejście poziomu: "+getTime();
-            document.querySelector('.won').animate({ width: "400px", height: "200px" }, 1000 )
-
             console.log(game.moves)
         }
     }
@@ -108,19 +106,6 @@ class Game {
                     console.log(e.keyCode);
                     break;
             }
-            /*
-            if (e.keyCode == '38') {
-                this.player.moveObject('up')
-            }
-            else if (e.keyCode == '40') {
-                this.player.moveObject('down')
-            }
-            else if (e.keyCode == '37') {
-                this.player.moveObject('left')
-            }
-            else if (e.keyCode == '39') {
-                this.player.moveObject('right')
-            }*/
         }
     }
     drawObjects() {
@@ -173,6 +158,7 @@ class Object {
             this.rotateObject(this.dir);
         }
     }
+    //Rotate Object
     rotateObject(dir){
         this.dir = dir;
         if (this.type == "player") {

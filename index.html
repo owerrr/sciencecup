@@ -16,7 +16,6 @@
     <link href="public\css\shop.css" rel="stylesheet">
     
     <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="public\js\main.js"></script>
     <script src="public\js\settings.js"></script>
     <script src="public\js\shop.js"></script>
@@ -34,8 +33,11 @@
     <container class="difficult">
         <h4>Wybierz poziom trudności:</h4>
         <input class='ncinput' id='easy' type="button" value="Łatwy">
+        <div class='tooltip' id='easy-tooltip'>Brak ograniczeń czasowych i ruchowych</div>
         <input class='ncinput' id='medium' type="button" value="Średni">
+        <div class='tooltip' id='medium-tooltip'>Ograniczenia Ruchowe</div>
         <input class='ncinput' id='hard' type="button" value="Trudny">
+        <div class='tooltip' id='hard-tooltip'>Ograniczenia ruchowe i czasowe</div>
     </container>
     <div class="game-container">
         <!-- NAV WITH UTILITIES -->

@@ -66,6 +66,8 @@ body {
 	z-index: -1;
 }
 .difficult {
+	opacity: 1;
+	visibility: visible;
 	top: 0;
 	bottom: 0;
 	margin: auto;
@@ -74,13 +76,18 @@ body {
 	right: 0;
 	text-align: center;
 	width: 350px;
-	height: 125px;
+	height: 135px;
 	background-color: #222222;
-	transition: 0.4s all ease-in-out;
+	transition: 0.2s all ease-in-out;
 	overflow: hidden;
+}
+.chosen {
+	visibility: hidden;
+	opacity: 0;
 }
 .difficult h4 {
 	margin: 0;
+	margin-top: 10px;
 	font-size: 25px;
 	color: white;
 	text-align: center;
@@ -97,8 +104,16 @@ body {
 #easy:hover {
 	background-color: rgb(100, 255, 100);
 }
+#easy:hover + #easy-tooltip {
+	visibility: visible;
+	opacity: 1;
+}
 #medium {
 	background-color: orange;
+}
+#medium:hover + #medium-tooltip {
+	visibility: visible;
+	opacity: 1;
 }
 #medium:hover {
 	background-color: rgb(255, 201, 100);
@@ -106,12 +121,31 @@ body {
 #hard {
 	background-color: rgb(255, 0, 0);
 }
+#hard:hover + #hard-tooltip {
+	visibility: visible;
+	opacity: 1;
+}
 #hard:hover {
 	background-color: rgb(255, 100, 100);
 }
-.chosen {
-	width: 0;
-	height: 0;
+.tooltip {
+	visibility: hidden;
+	opacity: 0;
+	width: 300px;
+	height: 20px;
+	background-color: #303030;
+	color: white;
+	font-size: 15px;
+	border-radius: 5px;
+	position: absolute;
+	top: 115px;
+	transition: 0.2s all ease-in-out;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	text-align: center;
 }
 /* nav */
 nav {
@@ -328,9 +362,13 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	overflow: hidden;
 	white-space: nowrap;
-	border-right: 3px solid white;
-	display: none;
-	transition: 2s all ease-in-out;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.2s all ease-in-out;
+}
+.won-on {
+	visibility: visible;
+	opacity: 1;
 }
 .next-level {
 	cursor: pointer;
@@ -338,13 +376,4 @@ body {
 }
 .next-level:hover {
 	color: #c2c2c2;
-}
-@keyframes cursorEffect {
-	from,
-	to {
-		border-color: transparent;
-	}
-	50% {
-		border-color: white;
-	}
 }

@@ -19,9 +19,6 @@ function registerShop(){
 }
 function showOption(val) {
     document.querySelector('.colors').classList.toggle('active')
-    if(document.querySelector('.hats') != null && document.querySelector('.hats').classList.contains('active')){
-        document.querySelector('.hats').classList.toggle('active')
-    }
 }
 function changeImage(value){
     if(value == null){

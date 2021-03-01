@@ -7,12 +7,17 @@
 	margin-right: auto;
 	background-color: rgba(25, 25, 25, 1);
 	color: white;
-	display: none;
+	visibility: hidden;
+	opacity: 0;
 	position: absolute;
 	top: 20vh;
 	left: 10vw;
 	transition: 0.2s all ease-in-out;
 	z-index: 1;
+}
+.active {
+	visibility: visible !important;
+	opacity: 1;
 }
 /* Store Item */
 .store-item {
@@ -69,13 +74,7 @@
 
 /* Categories */
 .colors {
-	display: none;
-}
-.hats {
-	display: none;
-}
-.active {
-	display: block;
+	visibility: hidden;
 }
 .shop-active {
 	overflow-y: hidden;
