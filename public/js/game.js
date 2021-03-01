@@ -48,7 +48,8 @@ class Game {
             //Win section
             window.clearTimeout(timer)
             document.querySelector('.won').classList.toggle('won-on')
-            document.querySelector('.moves').innerHTML = "Ilość wykonanych ruchów: "+game.moves+"<br>Czas poświęcony na przejście poziomu: "+getTime();
+            document.querySelector('.moves').innerHTML = "<i class='fas fa-running'></i> Ruchy: "+game.moves;
+            document.querySelector('.time').innerHTML = "<i class='far fa-clock'></i> Czas: "+getTime();
             console.log(game.moves)
         }
     }

@@ -355,7 +355,7 @@ body {
 	left: 0;
 	right: 0;
 	text-align: center;
-	width: 400px;
+	width: 450px;
 	height: 200px;
 	background-color: #111;
 	color: white;
@@ -370,10 +370,18 @@ body {
 	visibility: visible;
 	opacity: 1;
 }
+.won div {
+	margin: 10px;
+}
 .next-level {
+	margin-top: 40px;
+}
+.arrow-onclick {
 	cursor: pointer;
 	transition: 0.2s all ease-in-out;
+	margin-left: 5px;
+	margin-right: 5px;
 }
-.next-level:hover {
+.arrow-onclick:hover {
 	color: #c2c2c2;
 }
