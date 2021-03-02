@@ -1,4 +1,3 @@
-var difficultLevel;
 window.onload = () => {
     runGame(1)
     document.querySelectorAll("li.level").forEach(e => {
@@ -17,13 +16,13 @@ window.onload = () => {
     document.querySelectorAll('.next-level').forEach(e=>{
         e.onclick = () => {
             changeLevel(game.level + 1)
-            e.parentElement.className.remove('winlose-on')
+            e.parentElement.classList.remove('winlose-on')
         }
     })
     document.querySelectorAll('.retry').forEach(e=>{
         e.onclick = () => {
             changeLevel(game.level)
-            e.parentElement.className.remove('winlose-on')
+            e.parentElement.classList.remove('winlose-on')
         }
     })
     //menu dificulty selector
@@ -62,15 +61,17 @@ function getTime(){
 function changeDifficult(val){
     game.canMove = true;
     document.querySelector('.difficult').classList.add('chosen')
+    game.changeDifficult(val)
+    /*
     switch(val){
         case "easy":
-            difficultLevel = 'easy'
+            game.difficulty = 'easy'
             break;
         case "medium":
-            difficultLevel = 'medium'
+            game.difficulty = 'medium'
             break;
         case "hard":
-            difficultLevel = 'hard'
+            game.difficulty = 'hard'
             break;        
-    }
+    }*/
 }

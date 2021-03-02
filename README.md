@@ -151,5 +151,23 @@ Early alpha v0.2.0
 
 </details>
 
+<details>
+    <summary>v0.2.2</summary>
+
+```
+- [/] Fixed hiding the difficulty screen when changing level
+- [/] Fixed hiding the difficulty screen when repeating a level
+- [/] Fixed hiding the lose screen when changing level
+- [/] Fixed hiding the lose screen when repeating a level
+- [+] Added the 'Difficulty' variable to the 'game' object
+- [/] Replacing the global variable 'DifficultyLevel' with the object variable 'game'
+- [/] Fixed losing on medium level
+- [+] Added losing on hard difficulty
+- [/] Fixed variables 'limitTime' and 'limitMoves' in the settings file
+- [+] Added blocking movement when lose the game
+```
+
+</details>
+
 ###### &copy; 2021 | All rights reserved.
 

@@ -18,6 +18,9 @@ class Game {
         this.player = new Object(levels[level].player, true, "player");
         this.objects = [];
         this.points = [];
+        this.difficulty = "easy";
+        this.maxMoves = -1
+        this.maxTime = -1;
         levels[level].objects.forEach(e => {
             e.pos.forEach(n => {
                 if(e.type == "point"){
@@ -36,6 +39,19 @@ class Game {
         document.querySelector(".level-select").classList.toggle("level-select"); //off
         document.querySelectorAll("li.level")[this.level].classList.toggle("level-select") //on
 
+    }
+    changeDifficult(dif){
+        game.difficulty = dif;
+        if(dif == "hard"){
+            game.maxTime = levels[game.level].limitTime;
+        }
+        if(dif == "medium"){
+            game.maxMoves = levels[game.level].limitMoves;
+        }
+        if(dif == "easy"){
+            game.maxMoves = -1;
+            game.maxTime = -1;
+        }
     }
     clearGame(){
         window.clearTimeout(timer)
@@ -58,6 +74,11 @@ class Game {
             game.stoper++;
             console.log(game.stoper)
             document.getElementById("timer").innerHTMl = game.stoper + ""
+
+            if(game.maxTime != -1 && game.maxTime < game.stoper){
+                document.querySelector("#lose").classList.add('winlose-on');
+                game.canMove = false;
+            }
         }, 1000);
     }
     createTable() {
@@ -205,13 +226,15 @@ class Object {
             }
             game.moves++;
             document.getElementById("moves").innerHTML = game.moves
+
+            if(game.maxMoves != -1 && game.maxMoves < game.moves){
+                document.querySelector("#lose").classList.add('winlose-on');
+                game.canMove = false;
+            }
         };
         game.checkPoints()
         this.pos += dir;
         this.drawObject(this.pos - dir);
-        if((difficultLevel == 'medium' || difficultLevel == 'hard') && game.moves > levels[game.level]["limitMoves:"]){
-            document.querySelector("#lose").classList.add('winlose-on')
-        }
     }
     checkMove(pos) {
         if (document.querySelectorAll(".box-block")[pos].children.length > 0) {
