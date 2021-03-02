@@ -165,6 +165,7 @@ Early alpha v0.2.0
 - [+] Added losing on hard difficulty
 - [/] Fixed variables 'limitTime' and 'limitMoves' in the settings file
 - [+] Added blocking movement when lose the game
+- [+] Added blocking movement when wardrobe is open
 ```
 
 </details>

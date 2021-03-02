@@ -39,7 +39,7 @@ window.onload = () => {
 //Utilities
 function changeLevel(level){
     if(document.querySelector('.difficult') !=null){
-        document.querySelector('.difficult').classList.toggle('chosen')
+        document.querySelector('.difficult').classList.remove('chosen')
     }
     runGame(level+1);
     document.querySelector('#won').classList.remove('winlose-on')
@@ -62,16 +62,4 @@ function changeDifficult(val){
     game.canMove = true;
     document.querySelector('.difficult').classList.add('chosen')
     game.changeDifficult(val)
-    /*
-    switch(val){
-        case "easy":
-            game.difficulty = 'easy'
-            break;
-        case "medium":
-            game.difficulty = 'medium'
-            break;
-        case "hard":
-            game.difficulty = 'hard'
-            break;        
-    }*/
 }
