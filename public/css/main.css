@@ -347,7 +347,7 @@ body {
 	font-size: 15px;
 }
 /*Won screen*/
-.won {
+.winlose {
 	position: absolute;
 	margin-left: auto;
 	margin-right: auto;
@@ -366,11 +366,11 @@ body {
 	opacity: 0;
 	transition: 0.2s all ease-in-out;
 }
-.won-on {
+.winlose-on {
 	visibility: visible;
 	opacity: 1;
 }
-.won div {
+.winlose div {
 	margin: 10px;
 }
 .next-level {
@@ -384,4 +384,10 @@ body {
 }
 .arrow-onclick:hover {
 	color: #c2c2c2;
+}
+#lose h2 {
+	color: rgb(255, 87, 87);
+}
+#lose .next-level {
+	margin-top: 100px;
 }

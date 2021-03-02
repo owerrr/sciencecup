@@ -47,7 +47,7 @@ class Game {
             this.canMove = false;
             //Win section
             window.clearTimeout(timer)
-            document.querySelector('.won').classList.toggle('won-on')
+            document.querySelector('#won').classList.toggle('winlose-on')
             document.querySelector('.moves').innerHTML = "<i class='fas fa-running'></i> Ruchy: "+game.moves;
             document.querySelector('.time').innerHTML = "<i class='far fa-clock'></i> Czas: "+getTime();
             console.log(game.moves)
@@ -209,6 +209,9 @@ class Object {
         game.checkPoints()
         this.pos += dir;
         this.drawObject(this.pos - dir);
+        if((difficultLevel == 'medium' || difficultLevel == 'hard') && game.moves > levels[game.level]["limitMoves:"]){
+            document.querySelector("#lose").classList.add('winlose-on')
+        }
     }
     checkMove(pos) {
         if (document.querySelectorAll(".box-block")[pos].children.length > 0) {

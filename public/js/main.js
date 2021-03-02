@@ -1,3 +1,4 @@
+var difficultLevel;
 window.onload = () => {
     runGame(1)
     document.querySelectorAll("li.level").forEach(e => {
@@ -13,17 +14,26 @@ window.onload = () => {
         document.body.style.overflowY = 'visible'
     }, 1000)
     //Win game screen
-    document.querySelector('.next-level').onclick = () => {
-        changeLevel(game.level + 1)
-    }
+    document.querySelectorAll('.next-level').forEach(e=>{
+        e.onclick = () => {
+            changeLevel(game.level + 1)
+            e.parentElement.className.remove('winlose-on')
+        }
+    })
+    document.querySelectorAll('.retry').forEach(e=>{
+        e.onclick = () => {
+            changeLevel(game.level)
+            e.parentElement.className.remove('winlose-on')
+        }
+    })
     //menu dificulty selector
     document.querySelector('#diff').onclick = () =>{
         document.querySelector('.difficult').classList.toggle('chosen')
         game.canMove = false;
     }
-    document.querySelectorAll(".difficult").forEach( e => {
-        e.onclick = () => {
-            changeDifficult(e.id)
+    document.querySelectorAll(".ncinput").forEach( e => {
+            e.onclick = () => {
+                changeDifficult(e.id)
         }
     })
 }
@@ -33,7 +43,7 @@ function changeLevel(level){
         document.querySelector('.difficult').classList.toggle('chosen')
     }
     runGame(level+1);
-    document.querySelector('.won').classList.remove('won-on')
+    document.querySelector('#won').classList.remove('winlose-on')
     document.getElementById('moves').innerHTML= '0'
     document.querySelector('.game-box').id = level+1;
 }
@@ -54,10 +64,13 @@ function changeDifficult(val){
     document.querySelector('.difficult').classList.add('chosen')
     switch(val){
         case "easy":
+            difficultLevel = 'easy'
             break;
         case "medium":
+            difficultLevel = 'medium'
             break;
         case "hard":
+            difficultLevel = 'hard'
             break;        
     }
 }

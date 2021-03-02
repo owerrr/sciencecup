@@ -30,7 +30,7 @@
         <img src="public/img/box.png" id='box-loader' alt="">
     </container>
     <!--Select level of difficult-->
-    <container class="difficult">
+    <container id='test' class="difficult">
         <h4>Wybierz poziom trudności:</h4>
         <input class='ncinput' id='easy' type="button" value="Łatwy">
         <div class='tooltip' id='easy-tooltip'>Brak ograniczeń czasowych i ruchowych</div>
@@ -92,12 +92,18 @@
         </container>
     </div>
     <!-- You won screen -->
-    <container class="won">
+    <container class="winlose" id='won'>
         <h2>Gratulacje przeszedłeś poziom <i class="fas fa-check"></i></h2>
         <div class="moves"></div>
         <div class="time"></div>
         <i value='3' class="fas fa-arrow-right next-level arrow-onclick"></i>
-        <i class="fas fa-undo-alt arrow-onclick"></i>
+        <i class="fas fa-undo-alt arrow-onclick retry"></i>
+    </container>
+    <!--Lose screen-->
+    <container class="winlose" id='lose'>
+        <h2>Niestety nie przeszedłeś poziomu <i class="fas fa-frown"></i></h2>
+        <i value='3' class="fas fa-arrow-right next-level arrow-onclick"></i>
+        <i class="fas fa-undo-alt arrow-onclick retry"></i>
     </container>
     <!-- FOOTER -->
     <div class="page-footer">
