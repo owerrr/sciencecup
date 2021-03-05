@@ -63,7 +63,7 @@ class Game {
             this.canMove = false;
             //Win section
             window.clearTimeout(timer)
-            document.querySelector('#won').classList.toggle('winlose-on')
+            document.querySelector('#won').classList.toggle('shown')
             document.querySelector('.moves').innerHTML = "<i class='fas fa-running'></i> Ruchy: "+game.moves;
             document.querySelector('.time').innerHTML = "<i class='far fa-clock'></i> Czas: "+getTime();
             console.log(game.moves)
@@ -76,7 +76,7 @@ class Game {
             document.getElementById("timer").innerHTMl = game.stoper + ""
 
             if(game.maxTime != -1 && game.maxTime < game.stoper){
-                document.querySelector("#lose").classList.add('winlose-on');
+                document.querySelector("#lose").classList.add('shown');
                 game.canMove = false;
             }
         }, 1000);
@@ -228,7 +228,7 @@ class Object {
             document.getElementById("moves").innerHTML = game.moves
 
             if(game.maxMoves != -1 && game.maxMoves < game.moves){
-                document.querySelector("#lose").classList.add('winlose-on');
+                document.querySelector("#lose").classList.add('shown');
                 game.canMove = false;
             }
         };

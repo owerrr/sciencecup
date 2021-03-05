@@ -26,11 +26,15 @@
 <body>
     <!-- Loader -->
     <container class="loading-screen">
-        <img src="public/img/player-moving.gif" alt="">
-        <img src="public/img/box.png" id='box-loader' alt="">
+        <ul class="dots">
+            <li></li>
+            <li></li>
+            <li></li>
+            <div style="clear:both"></div>
+        </ul>
     </container>
     <!--Select level of difficult-->
-    <container id='test' class="difficult">
+    <container class="difficult window">
         <h4>Wybierz poziom trudności:</h4>
         <input class='ncinput' id='easy' type="button" value="Łatwy">
         <div class='tooltip' id='easy-tooltip'>Brak ograniczeń czasowych i ruchowych</div>
@@ -39,11 +43,23 @@
         <input class='ncinput' id='hard' type="button" value="Trudny">
         <div class='tooltip' id='hard-tooltip'>Ograniczenia ruchowe i czasowe</div>
     </container>
+
+    <container class="module window">
+        <h4>Wybierz Moduł:</h4>
+        <input class='ncinput module1' type="button" value="Moduł 1">
+        <div class='tooltip' id='module1-tooltip'>Klasyczny moduł</div>
+        <input class='ncinput module2' type="button" value="Moduł 2">
+        <div class='tooltip' id='module2-tooltip'>Numerowanie plansz od najłatwiejszej do najtrudniejszej</div>
+        <input class='ncinput module3' type="button" value="Moduł 3">
+        <div class='tooltip' id='module3-tooltip'>Tworzenie własnych plansz oraz granie na nich</div>
+    </container>
+    
     <div class="game-container">
         <!-- NAV WITH UTILITIES -->
         <nav class="navbar">
         <h1>Sokoban <i class="fas fa-people-carry"></i></h1>
         <ul>
+            <li id='module'>Moduły</li>
             <li id='diff'>Poziom Trudności</li>
             <li id='shop' name='off'>Garderoba</li>
             <li>Autorzy</li>
@@ -71,12 +87,12 @@
         <div class="game-box">
             <div class="game-box_screen"></div>
         </div>
-
+    </div>
+    
         <!-- SHOP -->
         <container class="store">
             <h2>Garderoba <i class="fas fa-tshirt"></i> <i class="fas fa-power-off off-shop" name='off'></i></h2>
             <article class="store-item">
-                <input class='ncinput' type="button" value="Ubrania" onclick= "showOption('colors')">
                 <div class="colors">
                     <label><input type="radio" name='shop-color' id="shop-pink" class='option-color'>Różowy</label>
                     <label><input type="radio" name='shop-color' id="shop-black" class='option-color'>Czarny</label>
@@ -90,7 +106,7 @@
                 <img src="" id="shop-image">
             </article>
         </container>
-    </div>
+
     <!-- You won screen -->
     <container class="winlose" id='won'>
         <h2>Gratulacje przeszedłeś poziom <i class="fas fa-check"></i></h2>

@@ -73,12 +73,6 @@
 }
 
 /* Categories */
-.colors {
-	visibility: hidden;
-}
-.shop-active {
-	overflow-y: hidden;
-}
 .off-shop {
 	float: right;
 	margin: 0 15px;

@@ -16,19 +16,26 @@ window.onload = () => {
     document.querySelectorAll('.next-level').forEach(e=>{
         e.onclick = () => {
             changeLevel(game.level + 1)
-            e.parentElement.classList.remove('winlose-on')
+            e.parentElement.classList.remove('shown')
         }
     })
     document.querySelectorAll('.retry').forEach(e=>{
         e.onclick = () => {
             changeLevel(game.level)
-            e.parentElement.classList.remove('winlose-on')
+            e.parentElement.classList.remove('shown')
         }
     })
     //menu dificulty selector
     document.querySelector('#diff').onclick = () =>{
         document.querySelector('.difficult').classList.toggle('chosen')
+        document.querySelector('.module').classList.remove('shown')
+        document.querySelector('.store').classList.remove('active')
         game.canMove = false;
+    }
+    document.querySelector('#module').onclick = () =>{
+        document.querySelector('.module').classList.toggle('shown')
+        document.querySelector('.difficult').classList.add('chosen')
+        document.querySelector('.store').classList.remove('active')
     }
     document.querySelectorAll(".ncinput").forEach( e => {
             e.onclick = () => {
@@ -42,7 +49,7 @@ function changeLevel(level){
         document.querySelector('.difficult').classList.remove('chosen')
     }
     runGame(level+1);
-    document.querySelector('#won').classList.remove('winlose-on')
+    document.querySelector('#won').classList.remove('shown')
     document.getElementById('moves').innerHTML= '0'
     document.querySelector('.game-box').id = level+1;
 }

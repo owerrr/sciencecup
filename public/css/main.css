@@ -20,52 +20,39 @@ body {
 	z-index: 1;
 	transition: 0.5s all ease-in-out;
 }
-.loading-screen img {
-	position: absolute;
-	animation: 2s running infinite;
-	animation-name: running;
-	animation-duration: 6s;
-	width: 10vw;
-	height: 15vh;
-	transform: scaleX(-1);
+.dots {
+	margin-left: auto;
+	margin-right: auto;
 }
-#box-loader {
-	position: absolute;
-	animation: 2s running infinite;
-	animation-name: moving-box;
-	animation-duration: 6s;
-	width: 10vw;
-	height: 15vh;
-	transform: scaleX(-1);
+.dots li {
+	float: left;
+	margin: 0 10px;
+	display: block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: white;
+	animation: loader 0.4s ease-in-out infinite alternate;
 }
-/* The running effect */
-@keyframes running {
-	0% {
-		left: 0;
-	}
-	50% {
-		left: 80vw;
-	}
-	100% {
-		left: 0;
-	}
+.dots li:nth-child(2) {
+	animation-delay: 0.2s;
 }
-@keyframes moving-box {
-	0% {
-		left: 10vw;
+.dots li:nth-child(3) {
+	animation-delay: 0.4s;
+}
+@keyframes loader {
+	from {
+		transform: translateY(0);
 	}
-	50% {
-		left: 90vw;
-	}
-	100% {
-		left: 10vw;
+	to {
+		transform: translateY(-1em);
 	}
 }
 .off {
 	opacity: 0;
 	z-index: -1;
 }
-.difficult {
+.window {
 	opacity: 1;
 	visibility: visible;
 	top: 0;
@@ -85,7 +72,7 @@ body {
 	visibility: hidden;
 	opacity: 0;
 }
-.difficult h4 {
+.window h4 {
 	margin: 0;
 	margin-top: 10px;
 	font-size: 25px;
@@ -93,10 +80,14 @@ body {
 	text-align: center;
 	font-family: "Courier New", Courier, monospace;
 }
-.difficult .ncinput {
+.window .ncinput {
 	margin-top: 10px;
 	display: block;
 	float: left;
+}
+.module {
+	visibility: hidden;
+	opacity: 0;
 }
 #easy {
 	background-color: rgb(0, 255, 0);
@@ -128,6 +119,18 @@ body {
 #hard:hover {
 	background-color: rgb(255, 100, 100);
 }
+.module1:hover + #module1-tooltip {
+	visibility: visible;
+	opacity: 1;
+}
+.module2:hover + #module2-tooltip {
+	visibility: visible;
+	opacity: 1;
+}
+.module3:hover + #module3-tooltip {
+	visibility: visible;
+	opacity: 1;
+}
 .tooltip {
 	visibility: hidden;
 	opacity: 0;
@@ -146,6 +149,12 @@ body {
 	left: 0;
 	right: 0;
 	text-align: center;
+}
+.module .tooltip {
+	top: 90px;
+}
+#module2-tooltip {
+	height: 40px;
 }
 /* nav */
 nav {
@@ -366,7 +375,7 @@ body {
 	opacity: 0;
 	transition: 0.2s all ease-in-out;
 }
-.winlose-on {
+.shown {
 	visibility: visible;
 	opacity: 1;
 }

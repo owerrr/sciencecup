@@ -19,7 +19,8 @@ function registerShop(){
 }
 function showOption(val) {
     game.canMove = document.querySelector('.colors').classList.contains('active');
-    document.querySelector('.colors').classList.toggle('active')
+    document.querySelector('.module').classList.remove('shown')
+    document.querySelector('.difficult').classList.add('chosen')
 }
 function changeImage(value){
     if(value == null){
