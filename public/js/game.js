@@ -37,7 +37,11 @@ class Game {
         this.drawObjects();
         this.showInfo();
         document.querySelector(".level-select").classList.toggle("level-select"); //off
-        document.querySelectorAll("li.level")[this.level].classList.toggle("level-select") //on
+        document.querySelectorAll("li.level").forEach(e => {
+            if(e.innerHTML == this.level+1){
+                e.classList.toggle("level-select") //on
+            }
+        })
 
     }
     changeDifficult(dif){

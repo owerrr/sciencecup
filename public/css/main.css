@@ -80,7 +80,7 @@ body {
 	text-align: center;
 	font-family: "Courier New", Courier, monospace;
 }
-.window .ncinput {
+.window .ncinput, .ncinput2{
 	margin-top: 10px;
 	display: block;
 	float: left;

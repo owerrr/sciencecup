@@ -42,6 +42,45 @@ window.onload = () => {
                 changeDifficult(e.id)
         }
     })
+    document.querySelectorAll(".ncinput2").forEach( e => {
+        e.onclick = () => {
+            if(e.classList.contains("module3")){
+                window.open("creator.html", '_blank');
+            }
+            if(e.classList.contains("module2")){
+                document.getElementsByClassName("game-header_utilities-bar")[0].innerHTML = "";
+                let sort = [1 ,3 ,4 ,5, 2, 7, 6, 8];
+                sort.forEach(e => {
+                    let child = document.createElement("li");
+                    child.classList.add("level");
+                    child.innerHTML = e;
+                    if(e == game.level+1){
+                        child.classList.add("level-select")
+                    }
+                    document.getElementsByClassName("game-header_utilities-bar")[0].append(child);
+                    child.onclick = () => {
+                        changeLevel(e - 1)
+                    }
+                });
+            }
+            if(e.classList.contains("module1")){
+                document.getElementsByClassName("game-header_utilities-bar")[0].innerHTML = "";
+                let sort = [1 , 2, 3, 4, 5, 6, 7, 8];
+                sort.forEach(e => {
+                    let child = document.createElement("li");
+                    child.classList.add("level");
+                    child.innerHTML = e;
+                    if(e == game.level+1){
+                        child.classList.add("level-select")
+                    }
+                    document.getElementsByClassName("game-header_utilities-bar")[0].append(child);
+                    child.onclick = () => {
+                        changeLevel(e - 1)
+                    }
+                });
+            }
+        }
+    })
 }
 //Utilities
 function changeLevel(level){
