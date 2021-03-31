@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Rajdhani&display=swap');
+
+html{
+    scroll-behavior:smooth;
+    user-select:none;
+}
+
+
+
+
+
+.page-header{
+    width: 100%;
+    height:100vh;
+    background: linear-gradient(to right, #000046, #1cb5e0);
+
+    border-bottom:2px solid #000046;
+    
+    font-family: 'Abel', sans-serif;
+}
+.header-content{
+    text-align:center;
+    color:rgb(255,255,255);
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-transform:lowercase;
+}
+.header-title{
+    font-size:72px;
+}
+
+
+.header-subtitle{font-size:18px;font-family: 'Rajdhani', sans-serif;}
+
+.header-subtitle{
+    width:173px;
+    height:25px;
+    overflow:hidden;
+    animation: showsubtitle 5s ease-in-out;
+    white-space: nowrap;
+    margin:auto;
+    border-right:1px solid rgba(255,255,255,0);
+}
+
+@keyframes showsubtitle{
+    from{width:0px;border-right:1px solid rgba(255,255,255,1);}
+    50%{width:173px;}
+}
+
+
+.header-decorate_img{
+    max-width:800px;
+    width:100%;
+    position:absolute;
+    top:50%;
+    right:0;
+    transform:translateY(-50%);
+    z-index:0;
+}
+
+.scrollDown-image{
+    width:64px;
+    position:absolute;
+    top:90%;
+    left:50%;
+    transform:translate(-50%,-50%)!important;
+    animation: bouncingArr 1s ease-in infinite alternate;
+}
+@keyframes bouncingArr{
+    0% {top:90%;}
+    100% {top:88%;}
+}
+.authors-box{
+    width:100%;
+    min-height:438px;
+    max-height:488.5px;
+    height:50vh;
+    background-color: rgba(255,255,255,1);
+    background: url('img/authors-bg.png');
+    background-position-y: -150px;
+    background-repeat:no-repeat;
+    background-position:Center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(50,50,50);
+
+    border-bottom: 2px solid rgb(10,10,10);
+}
+.row-authors{
+    width:1350px;
+    min-height:350px;
+    max-height:390px;
+    height:40vh;
+    /*background-color:red;*/
+}
+.col-authors{
+    text-align:center;
+    width:240px;
+    padding:0px 5px;
+    min-height:350px;
+    max-height:390px;
+    height:40vh;
+    background-color:rgba(0,0,0,0.8);
+    border-radius:25px;
+    float:left;
+    margin-left:25px;
+    font-family: 'Quicksand', sans-serif;
+
+    box-shadow: 0px 0px 20px -5px rgba(14,89,146,0.75);
+    transition-property:box-shadow;
+    transition-duration:0.5s;
+
+}
+.col-authors:hover{
+    box-shadow: 0px 0px 20px 0px rgba(29, 157, 255, 0.75);
+}
+.col-authors:first-child{margin:0;}
+.author-img{width:128px;margin-top:50px;border-radius:50%;}
+.author-title{
+    font-size:28px;
+    vertical-align: middle;
+}
+.middle-col{
+    transform:scale(1.1);
+}
+.author-title{color:rgb(255,255,255);height:50px;display:flex;align-items:center;justify-content: center;}
+.augustin-title{font-size:18px;}
+.info-box{
+    width:100%;
+    min-height:450px;
+    max-height:488.5px;
+    height:50vh;
+    background-color:rgba(5,5,5,1);
+    text-align:center;
+    border-bottom: 2px solid rgb(10,10,10);
+    border-top: 2px solid rgb(10,10,10);
+}
+
+.info-title{
+    color:rgb(255,255,255);
+    font-size:72px;
+    text-transform: uppercase;
+
+    font-family: 'Rajdhani', sans-serif; 
+}
+
+.info-content{
+    width:625px;
+    min-height:200px;
+    color:rgb(50,50,50);
+    margin:Auto;
+    text-align:left;
+
+    font-family: 'Quicksand', sans-serif;
+}
+.info-content p>a{
+    color:#fff;
+    text-decoration:none;
+}
+.info-content p:last-child{font-size:12px;margin-top:50px;float:right;}
+
+.game-box{
+    width:100%;
+    height:485px;
+    background-position-y: -150px;
+    background-repeat:no-repeat;
+    background-position:Center;
+    background-size:1920px;
+    text-align:Center;
+    border-bottom: 2px solid rgb(10,10,10);
+}
+.game-box h1{
+    margin-top:50px;
+    text-transform:uppercase;
+    color:#fff;
+    font-size:72px;
+    font-weight:lighter;
+
+    font-family: 'Quicksand', sans-serif;
+}
+.game-content{
+    width:450px;
+    min-height:200px;
+    margin:auto;
+    margin-top:25px;
+    font-size:24px;
+    text-align:left;
+    font-family: 'Rajdhani', sans-serif;
+
+}
+.sokoban{background-image:url(img/sokobaninfo-bg.png);}
+.zyrafa{background-image:url(img/skorazyrafy-bg.png);border-bottom:0;border-top:1px solid rgb(10,10,10);margin-top:25px;}
+
+.btn-startgame{
+    width:250px;
+    margin:auto;
+    padding: 25px 25px;
+    border: 1px solid black;
+    transition-property:background-color;
+    transition-duration:0.25s;
+    font-family: 'Quicksand', sans-serif;
+
+    box-shadow: inset 0px 0px 25px -15px rgba(29, 157, 255, 0.5);
+    transition-property:box-shadow,background-color;
+    transition-timing-function: ease-out;
+    
+    transition-duration:0.5s;
+
+}
+.btn-startgame:hover{
+    /*background-color:rgba(29,157,255,0.9);*/
+    box-shadow: inset 0px 0px 30px 30px rgba(29, 157, 255, 0.5);
+    cursor:pointer;
+}
+
+
+
+/* responsivity */
+
+@media all and (max-width:1365px){
+    .row-authors{
+        width: 1240px;
+    }
+    .col-authors{
+        width:230px;
+        margin-left:10px;
+    }
+}
+
+@media all and (max-width:1279px){
+    .row-authors{
+        width:990px;
+    }
+    .col-authors{
+        width:180px;
+        min-height:330px;
+    }
+    .author-title{
+        font-size:22px;
+    }
+    .author-subtitle{
+        font-size:12.9px;
+    }
+    .augustin-title{
+        font-size:16px;
+    }
+}
+
+@media all and (max-width:1023px){
+    .row-authors{
+        width:770px;
+        min-height:300px;
+        height:300px;
+    }
+    .col-authors{
+        width:140px;
+        min-height:300px;
+        height:300px;
+        margin-left:5px;
+    }
+    .authors-box{
+        min-height: 350px;
+        height:350px;
+    }
+    .author-title{
+        font-size:18px;
+    }
+    .author-subtitle{
+        font-size:10px;
+    }
+    .augustin-title{
+        font-size:12px;
+    }
+    .author-img{
+        width:96px;
+    }
+}
+
+@media all and (max-width:799px){
+    .row-authors{
+        width:350px;
+        min-height:940px;
+        height:940px;
+    }
+    .col-authors{
+        width:160px;
+        min-height:300px;
+        height:300px;
+        max-height:300px;
+        margin:0;
+        margin-top:10px!important;
+    }
+    .col-authors:nth-child(even){
+        margin-left:10px;
+    }
+    .col-authors:last-child{
+        margin-left:50%;
+        transform:translateX(-50%);
+    }
+    .authors-box{
+        min-height: 350px;
+        height:350px;
+    } 
+    .author-title{
+        font-size:18px;
+    }
+    .author-subtitle{
+        font-size:10px;
+    }
+    .augustin-title{
+        font-size:12px;
+    }
+    .author-img{
+        width:96px;
+    }
+    .authors-box{
+        min-height:940px;
+        height:940px;
+        background-size:auto 940px;
+    }
+}
+
+@media all and (max-width:625px){
+    .game-box h1{
+        font-size:42px;
+    }
+    .game-content{
+        width:350px;
+        font-size:24px;
+    }
+    .info-content{
+        width:350px;
+    }
+    .info-title{
+        font-size:42px;
+    }
+    .info-content p{
+        font-size:14px;
+    }
+}
+
+@media all and (max-width:374px){
+    .info-box{
+        min-height:525px;
+        height:525px;
+    }
+    .game-box h1{
+        font-size:42px;
+    }
+    .game-content{
+        width:270px;
+        font-size:18px;
+    }
+    .info-content{
+        width:270px;
+    }
+    .info-title{
+        font-size:42px;
+    }
+    .info-content p{
+        font-size:14px;
+    }
+    .btn-startgame{
+        width:215px;
+    }
+    .header-title{
+        font-size:64px;
+    }
+    .zyrafa > .btn-startgame{
+        margin-top:-50px;
+    }
+}
+
+@media all and (max-width:400px){
+    .row-authors{
+        width:170px;
+        min-height:1540px;
+        height:1540px;
+    }
+    .col-authors{
+        width:160px;
+        min-height:300px;
+        height:300px;
+        max-height:300px;
+        margin:0;
+        margin-top:10px;
+    }
+    .col-authors:first-child{
+        margin-top:0!important;
+    }
+    .col-authors:nth-child(even){
+        margin-left:0;
+    }
+    .col-authors:last-child{
+        margin-left:0;
+        transform:translateX(0);
+    }
+    .authors-box{
+        min-height: 350px;
+        height:350px;
+    } 
+    .author-title{
+        font-size:18px;
+    }
+    .author-subtitle{
+        font-size:10px;
+    }
+    .augustin-title{
+        font-size:12px;
+    }
+    .author-img{
+        width:96px;
+    }
+    .authors-box{
+        min-height:1585px;
+        height:1585px;
+        background-size:auto 1585px;
+    }
+}

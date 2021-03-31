@@ -29,12 +29,12 @@
     <div class='navbar-box'>
         <div class='nav'>
             <ul>
-                <li><a href="index.html">Strona główna</a></li>
+                <li><a href="../index.html">Strona główna</a></li>
                 <li onclick="viewlevels()">Lista poziomów</li>
                     <li id='module'><a href="#">Moduły</a></li>
                     <li id='diff'><a href="#">Poziom Trudności</a></li>
                     <li id='shop' name='off'><a href="#">Garderoba</a></li>
-                <li><a href="#">Pomoc</a></li>
+                <li onclick = "viewranking()"><a href="#">Ranking</a></li>
             </ul>
         </div>
     </div>
@@ -48,8 +48,23 @@
             <!-- tutaj generacja -->
         </div>
 
-        <div class='close-levels-menu'>
-            <span onclick="closelevels()">X</span>
+        <div class='close-levels-menu' onclick="closelevels()">
+            <span >X</span>
+        </div>
+    </div>
+
+    <div id="ranking">
+        <h2>Aktualny ranking</h2>
+        <br/>
+        <hr width="350px" style="margin:auto;">
+        <br/>
+        <div class='ranking-box'>
+            <!-- tutaj generacja -->
+            <div class='ranking'>IN DEV</div>
+        </div>
+
+        <div class='close-ranking-menu' onclick="closeranking()">
+            <span>X</span>
         </div>
     </div>
 
@@ -85,18 +100,8 @@
     </container>
     
     <div class="game-container">
-        <!-- NAV WITH UTILITIES -->
-        <nav class="navbar">
-        <h1>Sokoban <i class="fas fa-people-carry"></i></h1>
-        <ul>
-            <li id='module'>Moduły</li>
-            <li id='diff'>Poziom Trudności</li>
-            <li id='shop' name='off'>Garderoba</li>
-            <li>Autorzy</li>
-            <div style="clear:both;"></div>
-        </ul>
-        <div style="clear:both;"></div>
-        </nav>
+
+
         <div class="game-header">
             <div id="info"><div id="moves">0</div><div id="timer">0s</div></div>
 

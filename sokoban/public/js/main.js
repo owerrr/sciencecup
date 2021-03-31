@@ -11,9 +11,10 @@ window.onload = () => {
     runGame(1)
 
     
-    document.querySelectorAll("li.level").forEach(e => {
+    document.querySelectorAll("div.level").forEach(e => {
         e.onclick = () => {
             changeLevel(parseInt(e.innerHTML) - 1)
+            closelevels();
         }
     })
     registerShop()
