@@ -1,5 +1,16 @@
 window.onload = () => {
+    for(let i = 0 ; i < levels.length; i++){
+        let child = document.createElement("div");
+        if(i == 0){
+            child.classList.add("level-select")
+        }
+        child.classList.add("level");
+        child.innerText = i+1;
+        document.querySelector(".levels-box").append(child)
+    }
     runGame(1)
+
+    
     document.querySelectorAll("li.level").forEach(e => {
         e.onclick = () => {
             changeLevel(parseInt(e.innerHTML) - 1)
@@ -49,7 +60,14 @@ window.onload = () => {
             }
             if(e.classList.contains("module2")){
                 document.getElementsByClassName("game-header_utilities-bar")[0].innerHTML = "";
-                let sort = [1 ,3 ,4 ,5, 2, 7, 6, 8];
+                let sort = [];
+                for(let i = 0; i < levels.length; i++) sort.push(i+1);
+                sort.sort(function(a, b){
+                    if(levels[a-1].limitTime < levels[b-1].limitTime){
+                        return -1;
+                    }
+                    return 1;
+                })
                 sort.forEach(e => {
                     let child = document.createElement("li");
                     child.classList.add("level");
@@ -65,7 +83,8 @@ window.onload = () => {
             }
             if(e.classList.contains("module1")){
                 document.getElementsByClassName("game-header_utilities-bar")[0].innerHTML = "";
-                let sort = [1 , 2, 3, 4, 5, 6, 7, 8];
+                let sort = [];
+                for(let i = 0; i < levels.length; i++) sort.push(i+1);
                 sort.forEach(e => {
                     let child = document.createElement("li");
                     child.classList.add("level");

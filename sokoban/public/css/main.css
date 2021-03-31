@@ -80,7 +80,7 @@ body {
 	text-align: center;
 	font-family: "Courier New", Courier, monospace;
 }
-.window .ncinput, .ncinput2{
+.window .ncinput {
 	margin-top: 10px;
 	display: block;
 	float: left;
@@ -233,6 +233,19 @@ body {
 }
 .level {
 	cursor: pointer;
+	float: left;
+	margin: 10px 15px;
+	width: 16px;
+	height: 16px;
+	border: 1px solid white;
+	border-radius: 10px;
+	padding: 5px;
+	transition: .5s all ease-in-out;
+}
+.level:hover{
+	border: 1px solid gold;
+	color: gold;
+
 }
 .game-header_utilities-bar li::before {
 	content: " | ";
@@ -287,65 +300,6 @@ body {
 	width: 64px;
 	height: 64px;
 }
-
-/* FOOTER */
-
-.page-footer {
-	text-align: center;
-	width: 100%;
-	padding: 10px 0px;
-
-	border-top: 1px solid rgba(0, 0, 0, 1);
-	background-color: rgba(10, 10, 10, 1);
-	color: rgba(50, 50, 50, 1);
-
-	margin-top: 250px;
-}
-
-/* FOOTER */
-.page-footer {
-	margin-top: 150px;
-	width: 100%;
-	height: 50px;
-	padding: 25px 0px;
-
-	color: #fff;
-	/*background-color:#9400d3;*/
-	background-color: rgb(2, 2, 2, 0.5);
-	border-top: 2px solid #fff;
-
-	font-family: "Dosis", sans-serif;
-}
-
-.page-footer_holder {
-	width: auto;
-	max-width: 890px;
-	height: 100%;
-	margin-left: 25px;
-	margin: auto;
-}
-
-.page-footer_left {
-	float: left;
-}
-.page-footer_right {
-	margin-top: 10px;
-	float: right;
-	margin-right: 50px;
-}
-.page-footer_right a {
-	color: #007bff;
-	text-decoration: none;
-}
-
-.page-footer_image {
-	width: 96px;
-	float: left;
-}
-
-.page-footer_subtitle {
-	font-size: 14px;
-}
 /*Info*/
 #moves:before {
 	content: "Moves: ";
@@ -399,4 +353,178 @@ body {
 }
 #lose .next-level {
 	margin-top: 100px;
+}
+
+
+.navbar-box{
+	width:100%;
+	padding: 25px 0px;
+	background-color:rgba(0,0,0,0.75);
+	color:rgb(255,255,255);
+}
+.nav{
+	width:1000px;
+	margin:auto;
+	font-size:28px;
+}
+.nav ul li{
+	list-style-type:none;
+	display:inline-block;
+	margin-left:25px;
+}.nav ul li:first-child{margin:0;}
+.nav ul li:hover{cursor:pointer;}
+	.nav ul > li > a{
+		text-decoration:none;
+		color:white;
+	}
+	
+#level_list{
+	width: 800px;
+	height: 360px;
+	padding: 50px 100px;
+	border-radius: 5px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	background-color:rgba(25,25,25,1);
+	color:rgb(255,255,255);
+	text-align:center;
+	box-shadow: 0px 10px 20px 5px rgba(0,0,0,0.75);
+
+	z-index:9989;
+}
+
+#level_list h1{
+	font-weight:normal;
+}
+#level_list p{
+	font-size:19px;
+}
+
+.levels-box{
+	width:600px;
+	min-height:250px;
+	padding: 15px 5px;
+	background-color:rgba(0,0,0,0.75);
+	color:white;
+	margin:auto;
+	border-radius:15px;
+}
+
+.close-levels-menu{
+	padding: 5px 7px;
+	background-color:red;
+	color:white;
+	position:absolute;
+	top:0;
+	right:0;
+}.close-levels-menu:hover{cursor:pointer;}
+
+/* FOOTER */
+.page-footer {
+	width: 100%;
+	height: 125px;
+	padding: 25px 0px;
+
+	color: #fff;
+	/*background-color:#9400d3;*/
+	background-color: #050505;
+
+	font-family: "Dosis", sans-serif;
+
+	user-select:text;
+
+	margin-top:63px;
+}
+.page-footer_holder {
+	width: auto;
+	max-width: 1250px;
+	height: 100%;
+	margin-left: 25px;
+	margin: auto;
+}
+
+.page-footer_left {
+	float: left;
+	margin-left:50px;
+}
+.page-footer_right {
+	margin-top: 10px;
+	float: right;
+	margin-right: 50px;
+	margin-top:100px;
+    
+}
+.page-footer_right a {
+	color: #007bff;
+	text-decoration: none;
+	float:right!important;
+}
+
+.page-footer_image {
+	width: 96px;
+	float: left;
+}
+.page-footer_header{
+    font-size: 38px;
+    font-weight: bolder;
+}
+.page-footer_subtitle {
+	font-size: 14px;
+}
+
+@media all and (max-width:515px){
+	.page-footer_image {
+		width: 64px;
+		float: left;
+	}
+	.page-footer_header{
+		font-size: 28px;
+		font-weight: bolder;
+	}
+	.page-footer_subtitle {
+		font-size: 12px;
+	}
+}
+
+@media all and (max-width:434px){
+	.page-footer_image {
+		width: 64px;
+		float: left;
+	}
+	.page-footer_header{
+		font-size: 22px;
+		font-weight: bolder;
+	}
+	.page-footer_subtitle {
+		font-size: 10px;
+	}
+}
+
+@media all and (max-width:385px){
+	.page-footer_left {
+		float: left;
+		margin-left:50px;
+	}
+	.page-footer_right {
+		margin-top: 25px;
+		float: left;
+		margin:0;
+		margin-left: 50px;
+	}
+	.page-footer_right a{
+		float:left!important;
+	}
+	.page-footer_image {
+		width: 48px;
+		float: left;
+	}
+	.page-footer_header{
+		font-size: 22px;
+		font-weight: bolder;
+	}
+	.page-footer_subtitle {
+		font-size: 12px;
+	}
 }

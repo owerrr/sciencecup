@@ -1,29 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title></title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <meta name="description" content="sokoban in html5">
     <meta name="keywords" conten=""sokoban, sokoban in html5, sokoban in js, simple game, sokoban game>
-    <meta name="author" content="Masło#2844, xAxee#1287, owr#6062, AugustIn#8259, Stryszko#9867">
+    <meta name="author" content="owr#6062, Masło#2844, xAxee#1287, AugustIn#8259, Stryszko#9867">
 
-    <!-- CSS -->
+    <!-- LINKED CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link href="public\css\main.css" rel="stylesheet">
-    <link href="public\css\shop.css" rel="stylesheet">
     
-    <!-- JS -->
-    <script src="public\js\main.js"></script>
-    <script src="public\js\settings.js"></script>
-    <script src="public\js\shop.js"></script>
-    <script src="public\js\game.js"></script>
-    
-</head>
+    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="public/css/shop.css">
 
+    <!-- JS -->
+    <script src="public/js/main.js"></script>
+    <script src="public/js/settings.js"></script>
+    <script src="public/js/shop.js"></script>
+    <script src="public/js/game.js"></script>
+    <script src="public/js/levels.js"></script>
+
+    <title>jakasnazwa | Sokoban</title>
+</head>
 <body>
+
+    <div class='navbar-box'>
+        <div class='nav'>
+            <ul>
+                <li><a href="index.html">Strona główna</a></li>
+                <li onclick="viewlevels()">Lista poziomów</li>
+                    <li id='module'><a href="#">Moduły</a></li>
+                    <li id='diff'><a href="#">Poziom Trudności</a></li>
+                    <li id='shop' name='off'><a href="#">Garderoba</a></li>
+                <li><a href="#">Pomoc</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="level_list">
+        <h2>Wybierz poziom</h2>
+        <br/>
+        <hr width="350px" style="margin:auto;">
+        <br/>
+        <div class='levels-box'>
+            <!-- tutaj generacja -->
+        </div>
+
+        <div class='close-levels-menu'>
+            <span onclick="closelevels()">X</span>
+        </div>
+    </div>
+
+<!--game-->
     <!-- Loader -->
     <container class="loading-screen">
         <ul class="dots">
@@ -46,12 +76,12 @@
 
     <container class="module window">
         <h4>Wybierz Moduł:</h4>
-        <input class='ncinput2 module1' type="button" value="Moduł 1">
+        <input class='ncinput module1' type="button" value="Moduł 1">
         <div class='tooltip' id='module1-tooltip'>Klasyczny moduł</div>
-        <input class='ncinput2 module2' type="button" value="Moduł 2">
+        <input class='ncinput module2' type="button" value="Moduł 2">
         <div class='tooltip' id='module2-tooltip'>Numerowanie plansz od najłatwiejszej do najtrudniejszej</div>
-        <input class='ncinput2 module3' type="button" value="Moduł 3">
-        <div class='tooltip' id='module3-tooltip'>Tworzenie własnych plansz</div>
+        <input class='ncinput module3' type="button" value="Moduł 3">
+        <div class='tooltip' id='module3-tooltip'>Tworzenie własnych plansz oraz granie na nich</div>
     </container>
     
     <div class="game-container">
@@ -69,18 +99,7 @@
         </nav>
         <div class="game-header">
             <div id="info"><div id="moves">0</div><div id="timer">0s</div></div>
-            <br />
-            <ul class="game-header_utilities-bar">
-                <li class="level-select level">1</li>
-                <li class='level'>2</li>
-                <li class='level'>3</li>
-                <li class='level'>4</li>
-                <li class='level'>5</li>
-                <li class='level'>6</li>
-                <li class='level'>7</li>
-                <li class='level'>8</li>
-                <div style="clear:both;"></div>
-            </ul>
+
         </div>
         <!-- GAME -->
 
@@ -121,19 +140,26 @@
         <i value='3' class="fas fa-arrow-right next-level arrow-onclick"></i>
         <i class="fas fa-undo-alt arrow-onclick retry"></i>
     </container>
-    <!-- FOOTER -->
-    <div class="page-footer">
-        <div class="page-footer_holder">
-          <div class="page-footer_left">
-            <span class="page-footer_header" style="font-size: 38px; font-weight: bolder;">Sokoban</span>
-          </div>
-          <div class="page-footer_right">
-            <span class="page-footer_subtitle">&copy; 2020-2021 | All rights reserved</span>
-              <br/>
-            <span class="page-footer_subtitle" style="float:right;"><a href="https://github.com/owerrr/sciencecup">GitHub Repository</a></span>
-          </div>
-        </div>
-      </div>
-</body>
 
+
+<!--footer-->
+<div class="page-footer">
+    <div class="page-footer_holder">
+      <div class="page-footer_left">
+        <span class="page-footer_header">Niepołomice</span>
+        <br/>
+        <span class="page-footer_subtitle">Zespół Szkół<br/>im. Ojca Świętego Jana Pawła II<br/>w Niepołomicach</span>
+        <br/><br/>
+        <span class="page-footer_subtitle">Klasa 2TIP/sp</span>
+      </div>
+
+      <div class="page-footer_right">
+        <span class="page-footer_subtitle" style="user-select:none;">&copy; <script>document.write(new Date().getFullYear());</script> | All rights reserved</span>
+        <br/>
+        <span class="page-footer_subtitle"><a href="https://github.com/owerrr/sciencecup">GitHub Repository</a></span>
+      </div>
+
+    </div>
+  </div>
+</body>
 </html>

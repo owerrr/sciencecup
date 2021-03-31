@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kafelki</title>
+</head>
+<body>
+    <container class="box-zyrafa" onclick="moveTo('zachodnioafrykanska.html')">Zachodnio Afrykańska</container>
+    <container class="box-zyrafa" onclick="moveTo('zachodnioafrykanska.html')">Jakaś siatkowana</container>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        .box-zyrafa{
+            display: block;
+            width: 100vw;
+            height: 40vh;
+            color:white;
+            text-align: center;
+            padding-top: 10vh;
+            font-size:2em;
+            background-position-y:top;
+            background-repeat: no-repeat;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-shadow: 1px 1px blue;
+            cursor:pointer;
+            transition: .3s all ease-in-out;
+            opacity:80%;
+        }
+        .box-zyrafa:hover{
+            text-shadow: 2px 2px blue;
+            opacity:100%;
+        }
+        .box-zyrafa:nth-child(1){
+            background-image: url("zyrafa1.jpg");
+        }
+        .box-zyrafa:nth-child(2){
+            background-image: url("zyrafa2.jpg");
+        }
+    </style>
+</body>
+</html>
+
+<script>
+    function moveTo(href){
+        //window.location.replace(href);
+        window.open(href, "_self")
+    }
+</script>
