@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Żyrafa siatkowana</title>
+    <link rel="stylesheet" href="files/style.css">
+    <script type="text/javascript" src="files/dist/paper-full.js"></script>
+    <script type="text/javascript" src="http://paperjs.org/assets/js/rhill-voronoi-core.js"></script>
+    <script type="text/paperscript" scr="files/voronoi.js" canvas="canvas">
+        var voronoi = new Voronoi();
+        var sites = generateBeeHivePoints(view.size / 175, true);
+        var oldSize = view.size;
+
+        onResize();
+        function renderDiagram() {
+            project.activeLayer.removeChildren();
+            var diagram = voronoi.compute(sites, bbox);
+            if (diagram) {
+                for (var i = 0, l = sites.length; i < l; i++) {
+                    var cell = diagram.cells[sites[i].voronoiId];
+                    if (cell) {
+                        var halfedges = cell.halfedges,
+                            length = halfedges.length;
+                        if (length > 2) {
+                            var points = [];
+                            for (var j = 0; j < length; j++) {
+                                v = halfedges[j].getEndpoint();
+                                points.push(new Point(v));
+                            }
+                            createPath(points, sites[i]);
+                        }
+                    }
+                }
+            }
+        }
+        function generateBeeHivePoints(size, loose) {
+            var points = [];
+            var col = view.size / size;
+            
+            for (var i = -1; i < size.width + 1; i++) {
+                for (var j = -1; j < size.height + 1; j++) {
+                    var point = new Point(i, j) / new Point(size) * view.size + col / 2;
+                    if (j % 2)
+                        point += new Point(col.width / 2, 0);
+                    if (loose)
+                        point += (col / 4) * Point.random() - col / 4   ;
+                    points.push(point);
+                }
+            }
+            return points;
+        }
+        function createPath(points, center) {
+            var path = new Path();
+
+            path.fillColor = new Color("#783824");
+            path.closed = true;
+
+            for (var i = 0, l = points.length; i < l; i++) {
+                var point = points[i];
+                var next = points[(i + 1) == points.length ? 0 : i + 1];
+                var vector = (next - point) / (Math.random() * (2.5 - 1.9) + 1.9)  ;
+                path.add({
+                    point: point + vector,
+                    handleIn: -vector,
+                    handleOut: vector
+                });
+            }
+            path.scale((Math.random() * (0.95 - 0.8) + 0.8));
+            return path;
+        }
+
+        function onResize() {
+            var margin = 5;
+            bbox = {
+                xl: margin,
+                xr: view.bounds.width - margin,
+                yt: margin,
+                yb: view.bounds.height - margin
+            };
+            for (var i = 0, l = sites.length; i < l; i++) {
+                sites[i] = sites[i] * view.size / oldSize;
+            }
+            oldSize = view.size;
+            renderDiagram();
+        }
+    </script>
+</head>
+<body>
+    <h1 class="center">Zyrafa siatkowana</h1>
+    <a id="odnosnik" class="center" href="zachodnioafrykanska.html">Kliknij aby przejsc do zyrafy zachodnioafrykańska</a>
+    <canvas id="canvas" resize></canvas>
+</body>
+
+</html>
+
+<style>
+    body{
+        background-color: #f4ecd0;
+    }
+</style>
