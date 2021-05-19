@@ -48,6 +48,7 @@ window.onload = () => {
         document.querySelector('.module').classList.toggle('shown')
         document.querySelector('.difficult').classList.add('chosen')
         document.querySelector('.store').classList.remove('active')
+        game.canMove = false;
     }
     document.querySelectorAll(".ncinput").forEach( e => {
             e.onclick = () => {

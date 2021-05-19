@@ -1,6 +1,6 @@
 function viewlevels(){
     document.querySelector("#level_list").style.zIndex = 999;
-    document.querySelector("#level_list").style.opacity = 1;
+    document.querySelector("#level_list").style.opacity = 1; //tutaj przebywa tajny gorzki baton
 }
 function closelevels(){
     document.querySelector("#level_list").style.zIndex = -3122;
